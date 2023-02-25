@@ -1,29 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="" />
+    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/light_bulb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/meow_background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/meow_login.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientSide/ClientS.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/window_main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerSide/ServerS.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/server.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e6ae841c-546f-4865-88bd-92f3b693ffff" />
+        <option name="url" value="https://github.com/pragues/CSC1004_Chatroom.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.5/lib/src.zip!/java.base/java/lang/Runnable.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2MAVMLgV0W4mnx2Qzsk127MjUDv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/IntelliJ IDEA 2022.3.2/javafx-sdk-19.0.2.1/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.26283368",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\86177\IdeaProjects\Untitled\Client\src\main\resources" />
+      <recent name="C:\Users\86177\IdeaProjects\Untitled\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ClientS" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientSide.ClientS" />
+      <module name="CSC1004_Chatroom" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\IntelliJ IDEA 2022.3.2\javafx-sdk-19.0.2.1\lib&quot; --add-modules=javafx.controls,javafx.graphics,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="CSC1004_Chatroom" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\IntelliJ IDEA 2022.3.2\javafx-sdk-19.0.2.1\lib&quot; --add-modules=javafx.controls,javafx.graphics,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -32,8 +125,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677210326849</updated>
-      <workItem from="1677210328263" duration="1000" />
+      <workItem from="1677210328263" duration="5350000" />
+      <workItem from="1677237640235" duration="1044000" />
+      <workItem from="1677242302653" duration="812000" />
+      <workItem from="1677284514080" duration="5425000" />
+      <workItem from="1677294537585" duration="706000" />
+      <workItem from="1677318201825" duration="10338000" />
+      <workItem from="1677338227089" duration="3427000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
