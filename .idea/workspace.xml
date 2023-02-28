@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/ClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/light_bulb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/meow_background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/meow_login.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientSide/ClientS.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/window_main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerSide/ServerS.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,9 +76,15 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.26283368",
+    "project.structure.side.proportion": "0.32738853",
     "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -100,14 +94,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="ClientS" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ClientSide.ClientS" />
-      <module name="CSC1004_Chatroom" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\IntelliJ IDEA 2022.3.2\javafx-sdk-19.0.2.1\lib&quot; --add-modules=javafx.controls,javafx.graphics,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="CSC1004_Chatroom" />
@@ -131,8 +117,25 @@
       <workItem from="1677284514080" duration="5425000" />
       <workItem from="1677294537585" duration="706000" />
       <workItem from="1677318201825" duration="10338000" />
-      <workItem from="1677338227089" duration="3427000" />
+      <workItem from="1677338227089" duration="4530000" />
+      <workItem from="1677380766123" duration="139000" />
+      <workItem from="1677381302870" duration="1050000" />
+      <workItem from="1677388435244" duration="1286000" />
+      <workItem from="1677399553262" duration="2611000" />
+      <workItem from="1677417296492" duration="161000" />
+      <workItem from="1677421676983" duration="3657000" />
+      <workItem from="1677473738508" duration="1145000" />
+      <workItem from="1677487064630" duration="920000" />
+      <workItem from="1677567025793" duration="1194000" />
     </task>
+    <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
+      <created>1677341862038</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677341862038</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,5 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="The 2.26 trial. Known more about basic structure like dependencies and module management." />
+    <option name="LAST_COMMIT_MESSAGE" value="The 2.26 trial. Known more about basic structure like dependencies and module management." />
   </component>
 </project>
