@@ -1,6 +1,7 @@
 package ClientSide.client.chatwindow;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 public class window_main extends Application {
@@ -19,6 +20,7 @@ public class window_main extends Application {
 
 
     }
+
 
     @Override
     public void stop() throws Exception {

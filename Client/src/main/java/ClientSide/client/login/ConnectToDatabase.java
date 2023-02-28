@@ -1,6 +1,7 @@
 package ClientSide.client.login;
 
-import java.sql.Driver;
+import java.sql.*;
+
 public class ConnectToDatabase {
 
 

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import ClientSide.client.chatwindow.ClientHandler;
 //import ClientSide.client.chatwindow.ClientHandler;
 
 public class server extends Application {

@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
-
+import java.sql.*;
 
 public class ClientHandler implements Runnable{
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
@@ -21,6 +21,7 @@ public class ClientHandler implements Runnable{
     private BufferedWriter bufferedWriter;
 
     private String client_name;
+    private String password;
 
     public ClientHandler(Socket socket){
         try {
@@ -29,7 +30,10 @@ public class ClientHandler implements Runnable{
             this.bufferedWriter=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             //wrap the byte-stream in character stream
             this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
             this.client_name= bufferedReader.readLine();
+            this.password=bufferedReader.readLine();
+
             clientHandlers.add(this);
             broadcastMessage("SERVER: "+ client_name + " has entered the chatroom! "); //TODO
         }catch (IOException e){
