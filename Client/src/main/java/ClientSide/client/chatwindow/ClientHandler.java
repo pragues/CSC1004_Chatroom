@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
+
+
 public class ClientHandler implements Runnable{
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
     //this socket will be passed from our socket class
