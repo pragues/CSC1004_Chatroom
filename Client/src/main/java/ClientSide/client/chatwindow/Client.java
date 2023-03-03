@@ -3,21 +3,18 @@ package ClientSide.client.chatwindow;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
-import ClientSide.client.chatwindow.ClientHandler;
-import com.mysql.cj.xdevapi.Client;
-import com.mysql.cj.xdevapi.Session;
 
-public class  client {
+public class Client {
     private Socket socket;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String username;
 
-    public client(Socket socket, String username, String passcode){
+    public Client(Socket socket, String username, String passcode){
         try{
             this.socket=socket;
-            this.bufferedWriter=new BufferedReader(new OutputStreamWriter(socket.getOutputStream()));
-            this.bufferedReader=new BufferedWriter(new InputStreamReader(socket.getInputStream()));
+            this.bufferedWriter=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.username=username;
         }catch (IOException e){
             closeEverything(socket, bufferedReader, bufferedWriter);
@@ -83,7 +80,7 @@ public class  client {
         String username= scanner.nextLine();
         String passcode= scanner.nextLine();
         Socket socket = new Socket("localhost", 3306);
-        client client= new client(socket,username,passcode);
+        Client client= new Client(socket,username,passcode);
 
         //infinite while loop
         client.listenForMessage();

@@ -10,12 +10,12 @@ import java.net.Socket;
 import ClientSide.client.chatwindow.ClientHandler;
 //import ClientSide.client.chatwindow.ClientHandler;
 
-public class server extends Application {
+public class Server extends Application {
     /*As long as there is a client connecting in, we will
      * generate a thread. */
     private ServerSocket serverSocket;  //Maybe need to add it final
 
-    public server(ServerSocket serverSocket){
+    public Server(ServerSocket serverSocket){
         this.serverSocket=serverSocket;
     }
 
@@ -30,6 +30,11 @@ public class server extends Application {
 
                 ClientHandler clientHandler= new ClientHandler(socket);  //TODO
 
+                //*@ 这里是multithreading 的内容！
+                // 虽然并不是看的很懂
+                // ----------------------------------
+                // TAT 呜呜呜呜
+                // */
                 Thread thread = new Thread(clientHandler);
 
                 thread.start();
@@ -56,7 +61,7 @@ public class server extends Application {
         //launch(args);
         ServerSocket serverSocket1 = new ServerSocket(1233);
         //The server object of this class
-        server server =new server(serverSocket1);
+        Server server =new Server(serverSocket1);
         server.startServer();
     }
 

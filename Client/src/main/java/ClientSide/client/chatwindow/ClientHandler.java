@@ -31,6 +31,7 @@ public class ClientHandler implements Runnable{
             //wrap the byte-stream in character stream
             this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
+            //是不是在这里连到数据库里面去？？
             this.client_name= bufferedReader.readLine();
             this.password=bufferedReader.readLine();
 
