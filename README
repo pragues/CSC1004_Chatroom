@@ -13,3 +13,4 @@ Notations for ME:
     new main function class to call the main function in i.e.Stage.java
     然后在main 里面通过创建对象或者function call来实现别的class里面的代码
 2. Create a sql file to store the datum
+3.对于忘记密码的怎么处理：直接联系管理员？直接重新创建？

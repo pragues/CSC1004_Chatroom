@@ -8,6 +8,9 @@ import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
+/*This class implement the clients who already got an acount.
+* In GUI and database implementation*/
 public class Page2 {
 
     //public static void main(String[] args) {launch(args);}
