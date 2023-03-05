@@ -8,7 +8,7 @@ import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Page2 extends Application {
+public class Page2 {
 
     //public static void main(String[] args) {launch(args);}
 
@@ -23,11 +23,12 @@ public class Page2 extends Application {
     @FXML
     private TextField pswdInput;
     @FXML
-    private Button cancelWindow;
+    private Button cancelOperation;
 
     private ResultSet resultSet;  //java.sql
-    @Override
-    public void start(Stage primaryStage) {
+
+
+    private void Login () throws Exception{
 
     }
 }
