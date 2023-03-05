@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="more  GUI">
+    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="Handler amend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/chatwindow/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/login/ConnectToDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/client/login/ConnectToDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ServerSide/server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ServerSide/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/ClientSide/client/chatwindow/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ClientSide/client/chatwindow/ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/ClientSide/client/chatwindow/window_main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ClientSide/client/chatwindow/window_main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/ClientSide/client/login/ConnectToDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ClientSide/client/login/ConnectToDatabase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +154,10 @@
       <workItem from="1677589043553" duration="6497000" />
       <workItem from="1677599210437" duration="4080000" />
       <workItem from="1677839005914" duration="1201000" />
+      <workItem from="1677849441662" duration="1357000" />
+      <workItem from="1677932039907" duration="2184000" />
+      <workItem from="1677940132030" duration="1617000" />
+      <workItem from="1678019551580" duration="649000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -189,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677599633109</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="more  GUI">
+      <created>1677849494476</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677849494476</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +204,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="The 2.26 trial. Known more about basic structure like dependencies and module management." />
     <MESSAGE value="more  GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="more  GUI" />
+    <MESSAGE value="Handler amend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Handler amend" />
   </component>
 </project>

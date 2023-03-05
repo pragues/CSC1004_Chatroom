@@ -23,6 +23,11 @@ public class ClientHandler implements Runnable{
     private String client_name;
     private String password;
 
+    /*constructor: Take parameters and uniquely identify any incoming requests.
+    * para: socket, datainputstream, dataoutputstream
+    * Whenever we receive any request of client,
+    * the server extracts its port number, the DataInputStream object and DataOutputStream object
+    * and creates a new thread object of this class and invokes start() method on it.*/
     public ClientHandler(Socket socket){
         try {
             //
