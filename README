@@ -1,0 +1,15 @@
+An Chatroom application, may it be Central Perk, implemented in Java.
+Author: QIU Runheng 122090437
+
+Report and details:
+1.ClientSide
+2.ServerSide
+3.Database
+
+
+
+Notations for ME:
+1. JavaFx CAN NOT RUN ITS main function, so we'd better create a
+    new main function class to call the main function in i.e.Stage.java
+    然后在main 里面通过创建对象或者function call来实现别的class里面的代码
+2. Create a sql file to store the datum
