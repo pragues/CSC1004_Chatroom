@@ -1,10 +1,8 @@
-package ClientSide.client.chatwindow;
+package ClientSide.client;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
-
-import java.sql.*;
 
 public class ClientHandler implements Runnable{
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();

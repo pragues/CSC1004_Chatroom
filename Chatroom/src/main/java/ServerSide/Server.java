@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import ClientSide.client.chatwindow.ClientHandler;
-//import ClientSide.client.chatwindow.ClientHandler;
+import ClientSide.client.ClientHandler;
+//import ClientSide.client.ClientHandler;
 
 public class Server extends Application {
     /*As long as there is a client connecting in, we will

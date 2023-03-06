@@ -1,7 +1,5 @@
 package ClientSide.client.login;
 
-import ClientSide.client.chatwindow.Client;
-
 import java.net.Socket;
 import java.sql.*;
 

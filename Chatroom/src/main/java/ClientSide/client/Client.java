@@ -1,4 +1,4 @@
-package ClientSide.client.chatwindow;
+package ClientSide.client;
 
 import java.io.*;
 import java.net.Socket;
