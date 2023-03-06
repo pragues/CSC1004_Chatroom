@@ -5,29 +5,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" opacity="0.96" prefHeight="402.0" prefWidth="628.0" style="-fx-background-image: url(&quot;meow_background.jpg&quot;);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" opacity="0.96" prefHeight="354.0" prefWidth="531.0" style="-fx-background-image: url(meow_background.jpg);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="89.0" layoutY="65.0" prefHeight="35.0" prefWidth="488.0" style="&#10;" text="Welcome to Central Perk Chatroom!" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+      <Label alignment="CENTER" layoutX="32.0" layoutY="59.0" prefHeight="35.0" prefWidth="489.0" style="&#10;" text="Welcome to Central Perk Chatroom!" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Button layoutX="320.0" layoutY="120.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="178.0" text="Login">
+      <Button fx:id="login" layoutX="239.0" layoutY="120.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="178.0" text="Login">
          <font>
             <Font name="Gill Sans Ultra Bold" size="23.0" />
          </font>
       </Button>
-      <Button layoutX="320.0" layoutY="214.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="178.0" text="Sign Up">
+      <Button fx:id="signUp" layoutX="239.0" layoutY="219.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="178.0" text="Sign Up">
          <font>
             <Font name="Gill Sans Ultra Bold" size="23.0" />
          </font>
       </Button>
-      <Label layoutX="134.0" layoutY="134.0" prefHeight="38.0" prefWidth="158.0" text="Have an acount?">
+      <Label layoutX="72.0" layoutY="134.0" prefHeight="38.0" prefWidth="158.0" text="Have an acount?">
          <font>
             <Font name="MS Outlook" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="116.0" layoutY="228.0" prefHeight="38.0" prefWidth="193.0" text="Haven't got an acount?">
+      <Label layoutX="54.0" layoutY="233.0" prefHeight="38.0" prefWidth="193.0" text="Haven't got an acount?">
          <font>
             <Font name="MS Outlook" size="17.0" />
          </font>

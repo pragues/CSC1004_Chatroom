@@ -23,7 +23,7 @@ public class Main extends Application {
 
     private Parent root;
 
-    public void switchToPage1(ActionEvent )
+
     @Override
     public void init() throws Exception {
         super.init();

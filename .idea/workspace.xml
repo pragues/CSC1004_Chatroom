@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="Scene shifting">
+    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="More on scene shifting">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/chatwindow/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/chatwindow/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/chatwindow/window_main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/window_main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/ConnectToDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/ConnectToDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ServerSide/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/meow_login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/meow_login.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +22,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="JavaFXApplication" />
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="package-info" />
+        <option value="JavaFXApplication" />
       </list>
     </option>
   </component>
@@ -110,6 +112,9 @@
       <recent name="C:\Users\86177\IdeaProjects\Untitled\Client\src\main\resources" />
       <recent name="C:\Users\86177\IdeaProjects\Untitled\resources" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\86177\IdeaProjects\Untitled\Chatroom\src\main\java\ClientSide\client\login" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
@@ -169,7 +174,7 @@
       <workItem from="1677932039907" duration="2184000" />
       <workItem from="1677940132030" duration="1617000" />
       <workItem from="1678019551580" duration="11872000" />
-      <workItem from="1678106612420" duration="3094000" />
+      <workItem from="1678106612420" duration="5696000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -234,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678033522667</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="More on scene shifting">
+      <created>1678110779001</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678110779001</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +269,7 @@
     <MESSAGE value="more  GUI" />
     <MESSAGE value="Handler amend" />
     <MESSAGE value="Scene shifting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scene shifting" />
+    <MESSAGE value="More on scene shifting" />
+    <option name="LAST_COMMIT_MESSAGE" value="More on scene shifting" />
   </component>
 </project>
