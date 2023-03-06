@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-1.0" maxWidth="-1.0" opacity="0.96" prefHeight="354.0" prefWidth="531.0" style="-fx-background-image: url(meow_background.jpg);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="32.0" layoutY="59.0" prefHeight="35.0" prefWidth="489.0" style="&#10;" text="Welcome to Central Perk Chatroom!" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+      <Label fx:id="welcome" alignment="CENTER" layoutX="32.0" layoutY="59.0" prefHeight="35.0" prefWidth="489.0" style="&#10;" text="Welcome to Central Perk Chatroom!" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
          <font>
             <Font size="27.0" />
          </font>
@@ -22,12 +22,12 @@
             <Font name="Gill Sans Ultra Bold" size="23.0" />
          </font>
       </Button>
-      <Label layoutX="72.0" layoutY="134.0" prefHeight="38.0" prefWidth="158.0" text="Have an acount?">
+      <Label fx:id="have" layoutX="72.0" layoutY="134.0" prefHeight="38.0" prefWidth="158.0" text="Have an acount?">
          <font>
             <Font name="MS Outlook" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="233.0" prefHeight="38.0" prefWidth="193.0" text="Haven't got an acount?">
+      <Label fx:id="notHave" layoutX="54.0" layoutY="233.0" prefHeight="38.0" prefWidth="193.0" text="Haven't got an acount?">
          <font>
             <Font name="MS Outlook" size="17.0" />
          </font>

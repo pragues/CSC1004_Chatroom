@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="More on scene shifting">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/SceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/meow_login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/meow_login.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +18,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="package-info" />
         <option value="JavaFXApplication" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -174,7 +171,7 @@
       <workItem from="1677932039907" duration="2184000" />
       <workItem from="1677940132030" duration="1617000" />
       <workItem from="1678019551580" duration="11872000" />
-      <workItem from="1678106612420" duration="5696000" />
+      <workItem from="1678106612420" duration="7351000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -246,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678110779001</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="More on scene shifting">
+      <created>1678115940238</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678115940238</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
