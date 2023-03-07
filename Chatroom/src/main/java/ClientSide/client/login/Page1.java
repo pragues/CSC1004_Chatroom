@@ -2,21 +2,28 @@ package ClientSide.client.login;
 
 import ClientSide.client.Main;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
+
 import java.beans.EventHandler;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+
+
+/*------------------------------------------------------
+* 尤其注意import 应该不会用到awt但是和javafx两个有很多重合的地方
+* 所以fxml文件里报错可能是这边的controller引用了错误的包*/
 
 public class Page1 implements Initializable {
 
@@ -57,74 +64,18 @@ public class Page1 implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-    public static void signUpUser(ActionEvent event, String username, String password){
-        Connection connection=null;
-        PreparedStatement psInsert= null;
-        PreparedStatement psCheckUserExist=null;
-        ResultSet resultSet=null;
 
-        try{
-            //csc1004_chatroom_dadabase@localhost
-            //jdbc:mysql://localhost:3306/csc1004_chatroom_dadabase
+    /*设置转场是在button上添加event
+    * 是不是在page i里面的scene添加getScene 方法就能在别的里面用了*/
 
-            //SELECT `users-id` FROM `csc1004_chatroom_dadabase`.`users-data`;
-            connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/csc1004_chatroom_dadabase","root","");
-            psCheckUserExist=connection.prepareStatement("SELECT * FROM username WHERE username=? ");
-            //这里等号后面有几个问号就是下面有几个
-            psCheckUserExist.setString(1,username);
-            resultSet =psCheckUserExist.executeQuery();
 
-            //psCheckUserExist.executeUpdate();
-            if (resultSet.isBeforeFirst()){
-                System.out.println(" This USERNAME already exists! ");
-                Alert alert =new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Enter another USERNAME. ");
-                alert.show();
-            }else {
-                //insert the new username and password into the dadabase
-                psInsert= connection.prepareStatement("INSERT INTO users-data(username, password VALUES (?,?))");
-                psInsert.setString(1,username);
-                psInsert.setString(2,password);
-                psInsert.executeUpdate();
-                //登录到LoggedInChatbox 的界面
-                //TODO
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }finally {
-            //We should always close database connection and free database resource
-            //Close everything in the end
-            if (resultSet!=null){
-                try{
-                    resultSet.close();
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-            if (psInsert!=null){
-                try{
-                    resultSet.close();
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-            if (psCheckUserExist!=null){
-                try{
-                    resultSet.close();
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-            if (connection!=null){
-                try{
-                    resultSet.close();
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-
+    public void setLogin(ActionEvent event){
+        //button转场！
+        Page2 page2=new Page2();
 
     }
-
+    public void setSignUp(ActionEvent event){
+        PageCreateUser pageCreateUser=new PageCreateUser();
+        Scene next= pageCreateUser.getScene();
+    }
 }

@@ -4,6 +4,7 @@ import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
 import java.awt.*;
@@ -25,15 +26,18 @@ public class PageCreateUser{
     private TextField newPassword;
 
     private Button cancelOperation;
-    private Main mainApp;
+    private Scene scenePageCreateUser;
+    private static Main mainApp;
 
-    public ClientSide.client.Main getMainApp() {
-        return mainApp;
-    }
+    public Main getMainApp() {return mainApp;}
+    public Scene getScene(){return scenePageCreateUser;}
 
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
+
+    /*供外部转场调用*/
+    public Scene getScenePageCreateUser() {return scenePageCreateUser;}
 
     public void SignUp() throws Exception{
 
@@ -45,24 +49,28 @@ public class PageCreateUser{
      * user quits, back to login page
      */
     @FXML
-    private static void handleLogout() {
-        try {
-            //TODO
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("views/LoginView.fxml"));
-            Parent loginView = loader.load();
+//    private static void handleLogout() {
+//        try {
+//            //TODO
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(Main.class.getResource("views/LoginView.fxml"));
+//            Parent loginView = loader.load();
+//
+//            //LoginViewController loginViewController = loader.getController();
+//            Page1 page1 =loader.getController();
+//
+//            //mainApp.getPrimaryStage().setScene(new Scene(loginView, 1152, 640));
+//            mainApp.getPrimaryStage().show();
+//            page1.setMainApp(mainApp);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-            //LoginViewController loginViewController = loader.getController();
-            Page1 page1 =loader.getController();
-
-            //mainApp.getPrimaryStage().setScene(new Scene(loginView, 1152, 640));
-            mainApp.getPrimaryStage().show();
-            page1.setMainApp(mainApp);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    public static void handleLogout(){
+        //TODO
+        //转场到getScene1
+    };
 
     public void setNewUser(TextField username){
 

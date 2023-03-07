@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="More on scene shifting">
-      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/SceneController.java" afterDir="false" />
+    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="Handle login etc.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/ConnectToDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/ConnectToDatabase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +127,7 @@
       </method>
     </configuration>
     <configuration name="server" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ServerSide.server" />
+      <option name="MAIN_CLASS_NAME" value="ClientSide.client.Main" />
       <module name="CSC1004_Chatroom" />
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\IntelliJ IDEA 2022.3.2\javafx-sdk-19.0.2.1\lib&quot; --add-modules=javafx.controls,javafx.graphics,javafx.fxml" />
       <extension name="coverage">
@@ -250,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678115940238</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Handle login etc.">
+      <created>1678186574935</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678186574935</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +285,24 @@
     <MESSAGE value="Handler amend" />
     <MESSAGE value="Scene shifting" />
     <MESSAGE value="More on scene shifting" />
-    <option name="LAST_COMMIT_MESSAGE" value="More on scene shifting" />
+    <MESSAGE value="Handle login etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Handle login etc." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java</url>
+          <line>52</line>
+          <properties field="login" class="ClientSide.client.login.Page1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
