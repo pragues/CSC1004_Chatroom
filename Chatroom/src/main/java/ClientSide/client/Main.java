@@ -1,10 +1,8 @@
 package ClientSide.client;
 
 
-import ClientSide.client.login.Page1;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -12,7 +10,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.util.Optional;
 
 
@@ -22,7 +19,11 @@ import java.util.Optional;
 
 public class Main extends Application {
 
-    public static void main(String[] args) {launch(args);}
+    public static void main(String[] args) {
+        launch(args);
+//        Socket socket = new Socket("localhost", 3306);
+//        Client client= new Client(socket,username,passcode);
+    }
 
     private Stage stage;
 

@@ -10,6 +10,13 @@ public class Client {
     private BufferedWriter bufferedWriter;
     private String username;
 
+    /*Function: Constructor of Client
+    * Usage: Client client1= new Client(socket, username, passcode);
+    * --------------------------------------------------------------
+    *When Logging in, we first set the username and passcode, then create
+    * the socket and connect to the database, then set the Client object
+    * for this specific client.
+    * */
     public Client(Socket socket, String username, String passcode){
         try{
             this.socket=socket;

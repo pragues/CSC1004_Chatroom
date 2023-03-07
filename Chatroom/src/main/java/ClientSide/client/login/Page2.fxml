@@ -35,8 +35,8 @@
                         <Font name="Gill Sans Ultra Bold" size="23.0" />
                      </font>
                   </Button>
-                  <TextField id="username" fx:id="username" layoutX="251.0" layoutY="113.0" onAction="#setUsername" prefHeight="44.0" prefWidth="222.0" />
-                  <PasswordField fx:id="password" layoutX="252.0" layoutY="171.0" prefHeight="42.0" prefWidth="222.0" />
+                  <TextField id="username" fx:id="userName" layoutX="251.0" layoutY="113.0" onAction="#getUsername" prefHeight="44.0" prefWidth="222.0" />
+                  <PasswordField fx:id="passWord" layoutX="252.0" layoutY="171.0" prefHeight="42.0" prefWidth="222.0" />
                </children>
             </AnchorPane>
          </root>

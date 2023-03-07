@@ -3,9 +3,11 @@ package ClientSide.client.login;
 import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,10 +30,6 @@ public class PageCreateUser{
     private Button cancelOperation;  //Basically clear all the text
     @FXML
     private Scene scenePageCreateUser;
-    private static Main mainApp;
-
-    public Main getMainApp() {return mainApp;}
-    public Scene getScene(){return scenePageCreateUser;}
 
     /*供外部转场调用*/
     public Scene getScenePageCreateUser() {return scenePageCreateUser;}
@@ -111,7 +109,15 @@ public class PageCreateUser{
                 }
             }
         }
-
+        try{
+            Parent parent= FXMLLoader.load(PageCreateUser.class.getResource("Page1.fxml"));
+            Scene chatbox=new Scene(parent);
+            Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(chatbox);
+            window.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
 
