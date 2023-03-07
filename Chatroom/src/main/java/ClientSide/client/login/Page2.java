@@ -1,6 +1,5 @@
 package ClientSide.client.login;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,37 +21,28 @@ public class Page2 {
 
     //public static void main(String[] args) {launch(args);}
 
-    private PreparedStatement preparedStatement;
-    private static final String USER_NAME="root";
-    private static final String PASSWORD = "admin123456";
-    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    //private static final String URL = "jdbc:mysql://localhost:3306/newsSystem?allowPublicKeyRetrieval=true&useSSL=false&characterEncoding=utf-8";
-
-    @FXML
-    private TextField usnInput;
-    @FXML
-    private TextField pswdInput;
-    @FXML
-    private Button cancelOperation;
-
-
-    @FXML
-    private Scene scene2;
     @FXML
     private Button Login;
     @FXML
-    private TextField username;
+    private TextField userName;
     @FXML
-    private TextField password;
+    private TextField passWord;
     private ResultSet resultSet;  //java.sql
+    private String username;
+    private String password;
 
 
-    private void Login () throws Exception{
-
-    }
+//    private void Login () throws Exception{
+//
+//    }
+    @FXML
+    public void getUsername(ActionEvent actionEvent) {username=userName.getText();}
+    @FXML
+    public void getPassword(ActionEvent actionEvent) {password=passWord.getText();}
 
     /*实现了转场和登录到数据库*/
-    public void loginUser (ActionEvent event, String username, String password){
+    @FXML
+    public void loginUser (ActionEvent event){
         Connection connection=null;
         PreparedStatement psInsert= null;
         PreparedStatement psCheckUserExist=null;
@@ -70,19 +60,36 @@ public class Page2 {
             resultSet =psCheckUserExist.executeQuery();
 
             //psCheckUserExist.executeUpdate();
-            if (resultSet.isBeforeFirst()){
-                System.out.println(" This USERNAME already exists! ");
+            if (!resultSet.isBeforeFirst()){
+                System.out.println(" USERNAME not found in database ! ");
                 Alert alert =new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Enter another USERNAME. ");
+                alert.setContentText("Enter your USERNAME again. ");
                 alert.show();
             }else {
-                //insert the new username and password into the dadabase
-                psInsert= connection.prepareStatement("INSERT INTO users-data(username, password VALUES (?,?))");
-                psInsert.setString(1,username);
-                psInsert.setString(2,password);
-                psInsert.executeUpdate();
-                //登录到LoggedInChatbox 的界面
-                //TODO
+                while (resultSet.next()){
+                    String retrievedPassword= resultSet.getString("password");
+                    if (retrievedPassword.equals(password)){
+
+                        //这里match成功之后需要连接socket
+
+                        try{
+                            //TODO
+                            //chatbox might be null?
+                            Parent parent= FXMLLoader.load(getClass().getResource("/Chatbox.fxml"));
+                            Scene chatbox=new Scene(parent);
+                            Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
+                            window.setScene(chatbox);
+                            window.show();
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }else {
+                        System.out.println("Password does not match.");
+                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("The provided password is not correct. ");
+                    }
+                }
+
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -118,24 +125,7 @@ public class Page2 {
                 }
             }
         }
-        try{
-            Parent parent= FXMLLoader.load(getClass().getResource("Chatbox.fxml"));
-            Scene chatbox=new Scene(parent);
-            Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(chatbox);
-            window.show();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
 
     }
 
-    public void loginUser(ActionEvent actionEvent) {
-        //loginUser(actionEvent, usnInput, pswdInput);
-    }
-
-    public void setUsername() {
-
-    }
 }

@@ -1,28 +1,21 @@
 package ClientSide.client.login;
 
-import ClientSide.client.Main;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
+
 
 import javafx.stage.Stage;
 
-
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
 
 
 /*------------------------------------------------------
@@ -30,42 +23,71 @@ import java.util.ResourceBundle;
 * 所以fxml文件里报错可能是这边的controller引用了错误的包
 * -----------------------------------------------------*/
 
-public class Page1 implements Initializable {
+public class Page1 extends Application {
 
-   //public static void main(String[] args) {launch(args);}
-
-//    @Override
-//    public void start(Stage primaryStage) {}
-
-    @FXML
     private Stage primaryStage;
-    @FXML
-    private Scene scene1;
+
     @FXML
     private AnchorPane startUp;
     @FXML
     private Button login;
     @FXML
     private Button signUp;
-    private Main mainApp;
-
-
-
-    public void setMainApp(Main mainApp){this.mainApp=mainApp;}
-    public Main getMainApp(){return mainApp;}
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 
     /*设置转场是在button上添加event
     * 是不是在page i里面的scene添加getScene 方法就能在别的里面用了*/
 
+    //这个先不管
+    public void showLogin(Stage stage) {
+        //加载page1
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(this.getClass().getClassLoader().getResource("/Page1.fxml"));
+            AnchorPane root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            stage.setResizable(false);
+            Page1 page1=fxmlLoader.getController();
+            stage.show();
 
+            stage.setScene(new Scene(root, 1152, 640));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    @Override
+    public void start(Stage stage) throws IOException {
+        primaryStage=stage;
+        //AnchorPane root = new AnchorPane();
+
+        URL fxmlLocation = getClass().getResource("/Page1.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
+
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Page1.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Page1.fxml"));
+        //fxmlLoader.setRoot(new AnchorPane());
+
+        Parent root = fxmlLoader.load();  // 邮件中说的要改的第68行
+        Page1 loginViewController = fxmlLoader.getController();
+        primaryStage.setScene(new Scene(root));
+        //Scene scene1 = new Scene(root,533,344);
+        //primaryStage.setScene(scene1);
+
+
+        primaryStage.setTitle("Central-perk Chatroom");
+        primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image("light_bulb.png"));
+        primaryStage.setWidth(650);
+        primaryStage.setHeight(505);
+        primaryStage.show();
+    }
+
+    @FXML
     public void setLogin(ActionEvent event) throws IOException {
         //button转场到page2
-        Parent parent= FXMLLoader.load(getClass().getResource("Page2.fxml"));
+        Parent parent= FXMLLoader.load(getClass().getResource("/Page2.fxml"));
         Scene page2=new Scene(parent);
 
         Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -73,14 +95,18 @@ public class Page1 implements Initializable {
         window.show();
 
     }
+
+    @FXML
     public void setSignUp(ActionEvent event)throws IOException{
         //转场到PageCreateUser
-        Parent parent= FXMLLoader.load(getClass().getResource("PageCreateUser.fxml"));
+        Parent parent= FXMLLoader.load(getClass().getResource("/PageCreateUser.fxml"));
         Scene pageCreateUser=new Scene(parent);
 
         Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(pageCreateUser);
         window.show();
     }
+
+    public static void main(String[] args) {launch(args);}
 }
 
