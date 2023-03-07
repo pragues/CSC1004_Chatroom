@@ -1,7 +1,9 @@
 package ClientSide.client;
 
 
+import ClientSide.client.login.Page1;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -45,6 +47,9 @@ public class Main extends Application {
 //        client.sendMessage();
         //enter the chat page
         //close the window and disconnect the socket
+
+        primaryStage.setTitle("Central Perk Chatroom");
+
 
     }
 
