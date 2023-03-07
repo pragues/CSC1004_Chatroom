@@ -25,47 +25,16 @@ public class PageCreateUser{
     private TextField newUser;
     private TextField newPassword;
 
-    private Button cancelOperation;
+    private Button cancelOperation;  //Basically clear all the text
+    @FXML
     private Scene scenePageCreateUser;
     private static Main mainApp;
 
     public Main getMainApp() {return mainApp;}
     public Scene getScene(){return scenePageCreateUser;}
 
-    public void setMainApp(Main mainApp) {
-        this.mainApp = mainApp;
-    }
-
     /*供外部转场调用*/
     public Scene getScenePageCreateUser() {return scenePageCreateUser;}
-
-    public void SignUp() throws Exception{
-
-    }
-
-
-    /**
-     * 用户退出，返回登录界面
-     * user quits, back to login page
-     */
-    @FXML
-//    private static void handleLogout() {
-//        try {
-//            //TODO
-//            FXMLLoader loader = new FXMLLoader();
-//            loader.setLocation(Main.class.getResource("views/LoginView.fxml"));
-//            Parent loginView = loader.load();
-//
-//            //LoginViewController loginViewController = loader.getController();
-//            Page1 page1 =loader.getController();
-//
-//            //mainApp.getPrimaryStage().setScene(new Scene(loginView, 1152, 640));
-//            mainApp.getPrimaryStage().show();
-//            page1.setMainApp(mainApp);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public static void handleLogout(){
         //TODO

@@ -3,12 +3,16 @@ package ClientSide.client.login;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
 
 
@@ -47,7 +51,8 @@ public class Page2 {
 
     }
 
-    public void loginUser(ActionEvent event, String username, String password){
+    /*实现了转场和登录到数据库*/
+    public void loginUser (ActionEvent event, String username, String password){
         Connection connection=null;
         PreparedStatement psInsert= null;
         PreparedStatement psCheckUserExist=null;
@@ -112,6 +117,15 @@ public class Page2 {
                     e.printStackTrace();
                 }
             }
+        }
+        try{
+            Parent parent= FXMLLoader.load(getClass().getResource("Chatbox.fxml"));
+            Scene chatbox=new Scene(parent);
+            Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(chatbox);
+            window.show();
+        }catch (IOException e){
+            e.printStackTrace();
         }
 
 

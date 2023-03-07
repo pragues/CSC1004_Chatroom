@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="Handle login etc.">
+    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/ConnectToDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/ConnectToDatabase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,6 +174,7 @@
       <workItem from="1677940132030" duration="1617000" />
       <workItem from="1678019551580" duration="11872000" />
       <workItem from="1678106612420" duration="7351000" />
+      <workItem from="1678190453217" duration="3827000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -261,7 +260,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678186574935</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Handle login etc.">
+      <created>1678189399196</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678189399196</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java">
+      <created>1678189513810</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678189513810</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,20 +299,21 @@
     <MESSAGE value="Scene shifting" />
     <MESSAGE value="More on scene shifting" />
     <MESSAGE value="Handle login etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Handle login etc." />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java</url>
-          <line>52</line>
+          <line>46</line>
           <properties field="login" class="ClientSide.client.login.Page1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java</url>
-          <line>69</line>
+          <line>63</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
