@@ -7,7 +7,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.stage.Stage?>
 
-
+<!--在哪里找这个fxml文件的controller
+这是一个两边都需要定义的双向奔赴？
+-->
+<!--如果想要在.java 里面使用组件，需要加id-->
 <fx:root fx:id="primaryStage" type="Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientSide.client.login.Page1">
    <scene>
       <Scene fx:id="scene1">
