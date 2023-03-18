@@ -1,46 +1,39 @@
 package ClientSide.client.login;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 
 /*This class implement the function of create an account for those who have not
 * got an account  */
-public class PageCreateUser{
+public class Page3 {
 
-    //public static void main(String[] args) {launch(args);}
-//    @Override
-//    public void start(Stage primaryStage) {
-//
-//    }
-
-    private TextField newUser;
-    private TextField newPassword;
-
-    private Button cancelOperation;  //Basically clear all the text
     @FXML
-    private Scene scenePageCreateUser;
+    private TextField newUser;
+    @FXML
+    private TextField newPassword;
+    @FXML
+    private javafx.scene.control.Button up;
 
-    /*供外部转场调用*/
-    public Scene getScenePageCreateUser() {return scenePageCreateUser;}
+    private String userName;
+    private String passWord;
 
     public static void handleLogout(){
         //TODO
         //转场到getScene1
     };
 
-    public void setNewUser(TextField username){
-
-    }
     public static void signUpUser(ActionEvent event, String username, String password){
         Connection connection=null;
         PreparedStatement psInsert= null;
@@ -109,7 +102,7 @@ public class PageCreateUser{
             }
         }
         try{
-            Parent parent= FXMLLoader.load(PageCreateUser.class.getResource("../../../../resources/Page1.fxml"));
+            Parent parent= FXMLLoader.load(Page3.class.getResource("../../../../resources/Page1.fxml"));
             Scene chatbox=new Scene(parent);
             Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(chatbox);
@@ -120,6 +113,34 @@ public class PageCreateUser{
 
     }
 
+
+    @FXML
+    public void signUping(ActionEvent event)throws IOException{
+        //转场到PageCreateUser
+        setNewUser(event);
+        setNewPassword(event);
+        JDBC jdbc3= new JDBC();
+        jdbc3.initConnection();
+        jdbc3.add(userName,passWord);
+        jdbc3.closeConnection();
+
+        URL fxmlLocation = getClass().getResource("/Page1.fxml");
+        Parent parent= FXMLLoader.load(fxmlLocation);
+        Scene pageCreateUser=new Scene(parent);
+
+        Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(pageCreateUser);
+        window.show();
+    }
+
+    @FXML
+    public void setNewPassword(ActionEvent event) {
+        passWord=newPassword.getText();
+    }
+    @FXML
+    public void setNewUser(ActionEvent event) {
+        userName=newUser.getText();
+    }
 }
 
 

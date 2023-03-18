@@ -56,6 +56,9 @@ public class Page1 extends Application {
             e.printStackTrace();
         }
     }
+
+    /*The first stage loader
+    * 非必要不要动，免得碰坏了*/
     @FXML
     @Override
     public void start(Stage stage) throws IOException {
@@ -65,15 +68,13 @@ public class Page1 extends Application {
         URL fxmlLocation = getClass().getResource("/Page1.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
 
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Page1.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Page1.fxml"));
         fxmlLoader.setLocation(getClass().getResource("/Page1.fxml"));
         //fxmlLoader.setRoot(new AnchorPane());
 
         Parent root = fxmlLoader.load();  // 邮件中说的要改的第68行
         Page1 loginViewController = fxmlLoader.getController();
         primaryStage.setScene(new Scene(root));
-        //Scene scene1 = new Scene(root,533,344);
-        //primaryStage.setScene(scene1);
 
 
         primaryStage.setTitle("Central-perk Chatroom");
@@ -86,20 +87,20 @@ public class Page1 extends Application {
 
     @FXML
     public void setLogin(ActionEvent event) throws IOException {
-        //button转场到page2
-        Parent parent= FXMLLoader.load(getClass().getResource("/Page2.fxml"));
-        Scene page2=new Scene(parent);
+        URL fxmlLocation = getClass().getResource("/Page2.fxml");
+        Parent parent= FXMLLoader.load(fxmlLocation);
+        Scene pageCreateUser=new Scene(parent);
 
         Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(page2);
+        window.setScene(pageCreateUser);
         window.show();
-
     }
 
     @FXML
     public void setSignUp(ActionEvent event)throws IOException{
         //转场到PageCreateUser
-        Parent parent= FXMLLoader.load(getClass().getResource("/PageCreateUser.fxml"));
+        URL fxmlLocation = getClass().getResource("/Page3.fxml");
+        Parent parent= FXMLLoader.load(fxmlLocation);
         Scene pageCreateUser=new Scene(parent);
 
         Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();

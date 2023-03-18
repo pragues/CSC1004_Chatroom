@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 
 
@@ -32,9 +33,6 @@ public class Page2 {
     private String password;
 
 
-//    private void Login () throws Exception{
-//
-//    }
     @FXML
     public void getUsername(ActionEvent actionEvent) {username=userName.getText();}
     @FXML
@@ -126,6 +124,36 @@ public class Page2 {
             }
         }
 
+    }
+
+    @FXML
+    public void setLogin(ActionEvent event)throws IOException{
+        //转场到PageCreateUser
+
+        getUsername(event);
+        getPassword(event);
+
+        JDBC jdbc2= new JDBC();
+        jdbc2.initConnection();
+        boolean checkUser= jdbc2.searchForId(username);
+
+        if (checkUser==false){
+            System.out.println("The user does not exist. ");
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("The user does not exist. ");
+        }
+        jdbc2.searchForPassword(username,password);
+
+
+        URL fxmlLocation = getClass().getResource("/Chatbox.fxml");
+        Parent parent= FXMLLoader.load(fxmlLocation);
+        Scene pageCreateUser=new Scene(parent);
+
+        Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(pageCreateUser);
+        window.show();
+
+        jdbc2.closeConnection();
     }
 
 }

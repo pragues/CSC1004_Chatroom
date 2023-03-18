@@ -5,29 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java">
-      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Window_main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/resources/Page1.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/JDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/resources/Page3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5febe1d7-ef93-4678-8b35-38e9f550a183.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5febe1d7-ef93-4678-8b35-38e9f550a183.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/chatwindow/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/resources/Chatbox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/SceneController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/chatwindow/ClientHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/chatwindow/client$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/chatwindow/client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/chatwindow/window_main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/resources/Page2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/PageCreateUser.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/PageCreateUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/PageCreateUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/SceneController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/PageCreateUser.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +31,8 @@
         <option value="CSS File" />
         <option value="package-info" />
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -129,8 +120,8 @@
       <recent name="C:\Users\86177\IdeaProjects\Untitled\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\86177\IdeaProjects\Untitled\resources" />
       <recent name="C:\Users\86177\IdeaProjects\Untitled\Chatroom\src\main\resources" />
+      <recent name="C:\Users\86177\IdeaProjects\Untitled\resources" />
       <recent name="C:\Users\86177\IdeaProjects\Untitled\Chatroom\src\main\java\ClientSide\client\login" />
     </key>
   </component>
@@ -202,7 +193,11 @@
       <workItem from="1679038975639" duration="869000" />
       <workItem from="1679040103423" duration="131000" />
       <workItem from="1679042622610" duration="1382000" />
-      <workItem from="1679052742338" duration="587000" />
+      <workItem from="1679052742338" duration="1591000" />
+      <workItem from="1679057074354" duration="7929000" />
+      <workItem from="1679133233376" duration="567000" />
+      <workItem from="1679140973492" duration="6584000" />
+      <workItem from="1679149386954" duration="1438000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -316,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678202413401</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java">
+      <created>1679053428975</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1679053428975</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +355,10 @@
           <properties field="startUp" class="ClientSide.client.login.Page1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLIntegrityConstraintViolationException" package="java.sql" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
