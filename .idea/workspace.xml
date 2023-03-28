@@ -4,21 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java">
-      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/JDBC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chatroom/src/main/resources/Page3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5febe1d7-ef93-4678-8b35-38e9f550a183.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5febe1d7-ef93-4678-8b35-38e9f550a183.xml" afterDir="false" />
+    <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/chatwindow/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/resources/Chatbox.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/src/main/resources/Page2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/PageCreateUser.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/PageCreateUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Window_main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/chatwindow/LoggedInChatbox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/ConnectToDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/JDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/meow_login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/meow_login.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Chatbox.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/light_bulb.png" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/light_bulb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/meow_background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/meow_background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Chatbox.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/ClientHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/chatwindow/LoggedInChatbox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/ConnectToDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/JDBC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ServerSide/server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/light_bulb.png" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/light_bulb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/meow_background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/meow_background.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,11 +133,11 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.32738853&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalResources&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -124,12 +156,23 @@
       <recent name="C:\Users\86177\IdeaProjects\Untitled\resources" />
       <recent name="C:\Users\86177\IdeaProjects\Untitled\Chatroom\src\main\java\ClientSide\client\login" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Page1">
     <configuration name="Page1" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="MAIN_CLASS_NAME" value="ClientSide.client.login.Page1" />
-      <module name="Chatroom" />
+      <option name="MAIN_CLASS_NAME" value="ClientSide.login.Page1" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\IntelliJ IDEA 2022.3.2\javafx-sdk-19.0.2.1\lib&quot; --add-modules=javafx.controls,javafx.graphics,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerSide.Server" />
+      <module name="Server" />
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\IntelliJ IDEA 2022.3.2\javafx-sdk-19.0.2.1\lib&quot; --add-modules=javafx.controls,javafx.graphics,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,11 +186,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Page1" />
+      <item itemvalue="Application.Server" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="45487749-843b-46bc-ac32-bf80b30dcd69" name="Changes" comment="" />
+      <changelist id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit" />
       <created>1677210326849</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -198,6 +245,14 @@
       <workItem from="1679133233376" duration="567000" />
       <workItem from="1679140973492" duration="6584000" />
       <workItem from="1679149386954" duration="1438000" />
+      <workItem from="1679195257112" duration="637000" />
+      <workItem from="1679222521275" duration="13220000" />
+      <workItem from="1679237910140" duration="133000" />
+      <workItem from="1679239200999" duration="246000" />
+      <workItem from="1679378985689" duration="4161000" />
+      <workItem from="1679383869917" duration="4330000" />
+      <workItem from="1679388655060" duration="1634000" />
+      <workItem from="1679879849678" duration="1990000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -350,8 +405,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java</url>
-          <line>30</line>
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java</url>
+          <line>29</line>
           <properties field="startUp" class="ClientSide.client.login.Page1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -359,6 +414,39 @@
           <properties class="java.sql.SQLIntegrityConstraintViolationException" package="java.sql" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>
+          <line>42</line>
+          <properties class="ClientSide.client.login.Page3" method="signUpUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java</url>
+          <line>45</line>
+          <properties class="ClientSide.client.login.Page2">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

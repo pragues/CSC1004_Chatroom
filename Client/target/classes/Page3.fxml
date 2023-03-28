@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientSide.login.Page3">
+   <children>
+      <Label layoutX="137.0" layoutY="132.0" prefHeight="44.0" prefWidth="107.0" text="USERNAME">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="137.0" layoutY="190.0" prefHeight="44.0" prefWidth="107.0" text="PASSWORD">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="75.0" prefHeight="44.0" prefWidth="174.0" text="Please create your :">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="up" layoutX="220.0" layoutY="276.0" mnemonicParsing="false" onAction="#signUping" prefHeight="66.0" prefWidth="205.0" text="Sign Up">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="23.0" />
+         </font>
+      </Button>
+      <TextField fx:id="newUser" layoutX="271.0" layoutY="133.0" onAction="#setNewUser" prefHeight="44.0" prefWidth="227.0" />
+      <TextField fx:id="newPassword" layoutX="271.0" layoutY="190.0" onAction="#setNewPassword" prefHeight="44.0" prefWidth="227.0" />
+   </children>
+</AnchorPane>
