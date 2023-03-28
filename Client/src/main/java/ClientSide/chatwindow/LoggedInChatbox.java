@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class LoggedInChatbox {
     private String username;
@@ -35,33 +34,34 @@ public class LoggedInChatbox {
     private void setUserInfo(){
         username= Page2.giveUsername();
         password= Page2.givePassword();
-        System.out.println(username+password);
+        System.out.println("Username: "+username+" Password: "+password +"(loggedInChatbox: setInfo)");
     }
 
+    //为什么把这个变成class的函数就可以自动运行？
+    public LoggedInChatbox () {
+       try{
+           setUserInfo();
 
-    public void start(Stage stage)throws IOException {
-        setUserInfo();
+           InetAddress ip= InetAddress.getByName("localhost");
+           System.out.println("Client ip: "+ip+" (LoggedInChatbox) ");
 
-        InetAddress ip= InetAddress.getByName("localhost");
-        System.out.println(ip);
+           //创建本机的对象
+           Socket socketNow= new Socket(ip, ServerPort);
 
-        //创建本机的对象
-        Socket socketNow= new Socket(ip, ServerPort);
-
-        BufferedReader br=new BufferedReader(new InputStreamReader(socketNow.getInputStream()));
-        BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socketNow.getOutputStream()));
+           BufferedReader br=new BufferedReader(new InputStreamReader(socketNow.getInputStream()));
+           BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socketNow.getOutputStream()));
 
 
-        Client clientNow=new Client(socketNow,username,password);
-        clientNow.listenForMessage();
+           Client clientNow=new Client(socketNow,username,password);
+           clientNow.listenForMessage();
 
-        while (socketNow.isConnected()){
-            System.out.println("Connected");
-            sendMessage(clientNow,br,bw);
-        }
-
-        //clientNow.closeEverything(socketNow,br,bw);
-
+           while (socketNow.isConnected()){
+               System.out.println("Connected(来自LoggedInChatbox ())");
+               sendMessage(clientNow,br,bw);
+           }
+       }catch (IOException e){
+           e.printStackTrace();
+       }
     }
 
     public void sendMessage(Client client, BufferedReader br, BufferedWriter bw){
@@ -71,10 +71,9 @@ public class LoggedInChatbox {
             bw.newLine();
             bw.flush();
 
-            Scanner input= new Scanner(messageToSend.getText());
-            message=input.nextLine();
+            message= messageToSend.getText();
 
-            if(message.isBlank()){
+            if(!message.isBlank()){
                 bw.write(username+": "+messageToSend);
                 bw.newLine();
                 bw.flush();
@@ -86,27 +85,29 @@ public class LoggedInChatbox {
 
     //chatbox send按钮的函数
     @FXML
-    public void setSendMessage(ActionEvent event )throws IOException{
-        sendFunction();
-    }
+    public void setSendMessage(ActionEvent event )throws IOException{sendFunction();}
 
     //chatbox clear 按钮的函数
     @FXML
     public void setClearMessage(ActionEvent event)throws IOException{clearFunction();}
 
     public void clearFunction() {
-        String text = this.messageToSend.getText();
-        this.messageToSend.setText("");
+        String text =messageToSend.getText();
+
+        messageToSend.setText("");
     }
 
     public void sendFunction() {
-        String text = this.messageToSend.getText();
+        String text = messageToSend.getText();
+        System.out.println(username+": "+text);
+        //TODO
+        // 将已发送的消息显示
 
-        // do the send stuff: 将已发送的消息显示
 
-        // clear text (you may or may not want to do this here)
-        this.messageToSend.setText("");
+        messageToSend.setText("");
     }
     public void setOnKeyPressed(KeyEvent keyEvent) {
+        //TODO
+        // 按回车发消息
     }
 }

@@ -1,5 +1,6 @@
 package ClientSide.login;
 
+import ClientSide.chatwindow.LoggedInChatbox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,7 +72,7 @@ public class Page2 {
                 //TODO
                 //目前server都没有close
 
-                System.out.println("USER: "+username +" with PASSWORD "+ password+ " has logged in successfully");
+                System.out.println("USER: "+username +";  PASSWORD: "+ password+ ";  has logged in successfully"+"（来自Page2）");
 
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("LOGIN! ");
@@ -88,6 +89,8 @@ public class Page2 {
                 window.setHeight(702.0);
                 window.setWidth(847.0);
                 window.show();
+
+
             }else {
                 Alert alert=new Alert(Alert.AlertType.ERROR);
                 alert.setWidth(400);

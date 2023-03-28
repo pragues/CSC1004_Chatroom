@@ -36,8 +36,13 @@ public class Client {
             bufferedWriter.newLine();
             bufferedWriter.flush();
 
+            //get Input from the console 所以是不是就是这里的scanner要改成 textarea的部分
+            //TODO
             Scanner scanner =  new Scanner(System.in);
+
+
             while(socket.isConnected()){
+                //TODO
                 String messageToSend =scanner.nextLine();
                 bufferedWriter.write(username+": "+messageToSend);
                 bufferedWriter.newLine();

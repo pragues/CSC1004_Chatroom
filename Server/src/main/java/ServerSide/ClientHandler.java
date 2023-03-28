@@ -76,8 +76,10 @@ public class ClientHandler implements Runnable{
         //For each client-handler, for each iteration
         for (ClientHandler clientHandler: clientHandlers){
             try{
+                //why clientHandler.client_name could be null? 莫不是因为我只开了一个client？
                 if (!clientHandler.client_name.equals(client_name)){
                     clientHandler.bufferedWriter.write(messageToSent);
+
                     clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
                     clientHandler.bufferedWriter.flush();    //a buffer might not be full, not we manually flush it
                 }

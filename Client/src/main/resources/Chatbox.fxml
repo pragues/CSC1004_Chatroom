@@ -22,7 +22,7 @@
             <Font name="Copperplate Gothic Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="clearMessage" layoutX="732.0" layoutY="564.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" text="Clear">
+      <Button fx:id="clearMessage" layoutX="732.0" layoutY="564.0" mnemonicParsing="false" onAction="#setClearMessage" prefHeight="50.0" prefWidth="102.0" text="Clear">
          <font>
             <Font size="18.0" />
          </font>

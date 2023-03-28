@@ -19,7 +19,6 @@ public class Server {
         this.serverSocket=serverSocket;
     }
 
-    //为什么打开server的时候不会启动？
     public void startServer(){
         /*Make the server generally running indefinitely*/
         try {
@@ -41,12 +40,13 @@ public class Server {
             }
         }catch (IOException e){
             e.printStackTrace();
+            closeServerSocket();
         }
     }
 
     public void closeServerSocket(){
         try {
-            //nul pointer exception
+            //null pointer exception
             if (serverSocket!= null){
                 serverSocket.close();
             }
