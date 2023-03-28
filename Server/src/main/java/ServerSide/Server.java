@@ -19,6 +19,7 @@ public class Server {
         this.serverSocket=serverSocket;
     }
 
+    //为什么打开server的时候不会启动？
     public void startServer(){
         /*Make the server generally running indefinitely*/
         try {
@@ -31,7 +32,7 @@ public class Server {
                 BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter);  //TODO
+                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter);
 
                 //multi threading
                 Thread thread = new Thread(clientHandler);
@@ -56,9 +57,8 @@ public class Server {
 
 
     public static void main(String[] args) throws IOException{
-        //launch(args);
         ServerSocket serverSocket1 = new ServerSocket(1233);
-        //The server object of this class
+
         Server server =new Server(serverSocket1);
         server.startServer();
     }

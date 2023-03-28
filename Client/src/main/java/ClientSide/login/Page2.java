@@ -71,6 +71,8 @@ public class Page2 {
                 //TODO
                 //目前server都没有close
 
+                System.out.println("USER: "+username +" with PASSWORD "+ password+ " has logged in successfully");
+
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("LOGIN! ");
                 alert.setHeaderText("Login successfully!");

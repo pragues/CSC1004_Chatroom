@@ -92,11 +92,12 @@ public class LoggedInChatbox {
 
     //chatbox clear 按钮的函数
     @FXML
-    public void setClearMessage(ActionEvent event)throws IOException{
-            String text = this.messageToSend.getText();
-            this.messageToSend.setText("");
-    }
+    public void setClearMessage(ActionEvent event)throws IOException{clearFunction();}
 
+    public void clearFunction() {
+        String text = this.messageToSend.getText();
+        this.messageToSend.setText("");
+    }
 
     public void sendFunction() {
         String text = this.messageToSend.getText();
@@ -106,7 +107,6 @@ public class LoggedInChatbox {
         // clear text (you may or may not want to do this here)
         this.messageToSend.setText("");
     }
-
     public void setOnKeyPressed(KeyEvent keyEvent) {
     }
 }

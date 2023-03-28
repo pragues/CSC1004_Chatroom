@@ -1,13 +1,19 @@
 package ServerSide;
 
+import ClientSide.login.Page2;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
+//Runnable si a class such that all the instance methods are implemented through different threads
 public class ClientHandler implements Runnable{
+    //every instance of this class. Keep track of our clients so that when broadcast a message everyone can see it
+    //static: 让其属于这个class而不是属于一个object of this class
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
-    //this socket will be passed from our socket class
-    /*Establish a connection between the client and the server*/
+
+    /*//this socket will be passed from our socket class
+    *Establish a connection between the client and the server*/
     private Socket socket;
 
     /*Used to read data specifically messages that have been sent from the client*/
@@ -21,6 +27,10 @@ public class ClientHandler implements Runnable{
     private String client_name;
     private String password;
 
+    private void setInfo(){
+        client_name= Page2.giveUsername();
+        password= Page2.givePassword();
+    }
     /*constructor: Take parameters and uniquely identify any incoming requests.
     * para: socket, datainputstream, dataoutputstream
     * Whenever we receive any request of client,
@@ -31,30 +41,33 @@ public class ClientHandler implements Runnable{
         this.socket=socket;
         bufferedReader=br;
         bufferedWriter=bw;
-
         //wrap the byte-stream in character stream
         //this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-
-//            this.client_name= bufferedReader.readLine();
-//            this.password=bufferedReader.readLine();
+        setInfo();
 
         clientHandlers.add(this);
+
         broadcastMessage("SERVER: "+ client_name + " has entered the chatroom! ");
         System.out.println("SERVER: "+ client_name + " has entered the chatroom! ");
     }
 
-    /*Listening for messages. */
+
+    /*这里面的是每一个Thread都会run的东西 */
     @Override
     public void run(){
+
         String message_from_client;
+
         while (socket.isConnected()){
             try {
-                message_from_client=bufferedReader.readLine(); //This is a blocking application
+                //还是需要在TextArea和bufferedReader 之间建立联系
+                // TODO
+                message_from_client=bufferedReader.readLine(); //This is a blocking operation
                 broadcastMessage(message_from_client);
             }catch (IOException e){
                 closeEverything(socket,bufferedReader,bufferedWriter);
-                break;  //break out when disconnect
+                break;  //break out when client disconnects
             }
         }
     }
