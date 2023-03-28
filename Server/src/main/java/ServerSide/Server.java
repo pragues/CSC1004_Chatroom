@@ -1,7 +1,7 @@
 package ServerSide;
 
 
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -25,20 +25,18 @@ public class Server {
             while(!serverSocket.isClosed()){
                 //The program will halt here until a client connects;
                 Socket socket= serverSocket.accept();
-                System.out.println("A new client has connected! ");
+                System.out.println("A new client has connected! " + socket);
 
+                //obtain the input and output stream on the server side
+                BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-                ClientHandler clientHandler= new ClientHandler(socket);  //TODO
+                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter);  //TODO
 
-                //*@ 这里是multithreading 的内容！
-                // 虽然并不是看的很懂
-                // ----------------------------------
-                // TAT 呜呜呜呜
-                // */
+                //multi threading
                 Thread thread = new Thread(clientHandler);
 
                 thread.start();
-
             }
         }catch (IOException e){
             e.printStackTrace();

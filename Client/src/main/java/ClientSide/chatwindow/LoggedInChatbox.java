@@ -3,10 +3,13 @@ package ClientSide.chatwindow;
 import ClientSide.Client;
 import ClientSide.login.Page2;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -25,10 +28,14 @@ public class LoggedInChatbox {
     private TextArea messageToSend;
     @FXML
     private ScrollPane scrollPane;
+
+    //发送之后重载成“ ”
+    private String message;
     final static int ServerPort=1233;
     private void setUserInfo(){
         username= Page2.giveUsername();
         password= Page2.givePassword();
+        System.out.println(username+password);
     }
 
 
@@ -53,7 +60,7 @@ public class LoggedInChatbox {
             sendMessage(clientNow,br,bw);
         }
 
-        clientNow.closeEverything(socketNow,br,bw);
+        //clientNow.closeEverything(socketNow,br,bw);
 
     }
 
@@ -63,9 +70,11 @@ public class LoggedInChatbox {
             bw.write(username);
             bw.newLine();
             bw.flush();
+
             Scanner input= new Scanner(messageToSend.getText());
-            String messageToSend =input.nextLine();
-            if(!messageToSend.isBlank()){
+            message=input.nextLine();
+
+            if(message.isBlank()){
                 bw.write(username+": "+messageToSend);
                 bw.newLine();
                 bw.flush();
@@ -78,12 +87,26 @@ public class LoggedInChatbox {
     //chatbox send按钮的函数
     @FXML
     public void setSendMessage(ActionEvent event )throws IOException{
-
+        sendFunction();
     }
 
     //chatbox clear 按钮的函数
     @FXML
     public void setClearMessage(ActionEvent event)throws IOException{
+            String text = this.messageToSend.getText();
+            this.messageToSend.setText("");
+    }
 
+
+    public void sendFunction() {
+        String text = this.messageToSend.getText();
+
+        // do the send stuff: 将已发送的消息显示
+
+        // clear text (you may or may not want to do this here)
+        this.messageToSend.setText("");
+    }
+
+    public void setOnKeyPressed(KeyEvent keyEvent) {
     }
 }

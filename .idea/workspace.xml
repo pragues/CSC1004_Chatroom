@@ -5,52 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/Window_main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/chatwindow/LoggedInChatbox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/ConnectToDatabase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/JDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/Page3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ClientSide/client/login/meow_login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/meow_login.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Chatbox.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/Page3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/light_bulb.png" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/light_bulb.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/src/main/resources/meow_background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/meow_background.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Chatbox.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/ClientHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/chatwindow/LoggedInChatbox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/ConnectToDatabase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/JDBC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ClientSide/client/login/Page3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/Page3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/ServerSide/server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/light_bulb.png" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/light_bulb.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatroom/target/classes/meow_background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/meow_background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,6 +213,7 @@
       <workItem from="1679383869917" duration="4330000" />
       <workItem from="1679388655060" duration="1634000" />
       <workItem from="1679879849678" duration="1990000" />
+      <workItem from="1679970819822" duration="4126000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -373,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679053428975</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="commit">
+      <created>1679970951057</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1679970951058</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +367,8 @@
     <MESSAGE value="More on scene shifting" />
     <MESSAGE value="Handle login etc." />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Chatroom/src/main/java/ClientSide/client/Main.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page1.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/Page2.java&#10;#&#9;Chatroom/src/main/java/ClientSide/client/login/PageCreateUser.java" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -421,13 +390,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
-          <line>62</line>
+          <line>69</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
-          <line>63</line>
+          <line>70</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>

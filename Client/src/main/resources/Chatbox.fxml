@@ -11,7 +11,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
       </ScrollPane>
-      <TextArea fx:id="messageToSend" layoutX="14.0" layoutY="464.0" prefHeight="200.0" prefWidth="718.0" text="Enter a meassage..." />
+      <TextArea fx:id="messageToSend" layoutX="14.0" layoutY="464.0" onKeyPressed="#setOnKeyPressed" prefHeight="200.0" prefWidth="718.0" text="Enter a meassage..." />
       <Button layoutX="732.0" layoutY="514.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" text="emoji">
          <font>
             <Font name="Consolas" size="18.0" />

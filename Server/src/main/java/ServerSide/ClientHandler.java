@@ -26,23 +26,22 @@ public class ClientHandler implements Runnable{
     * Whenever we receive any request of client,
     * the server extracts its port number, the DataInputStream object and DataOutputStream object
     * and creates a new thread object of this class and invokes start() method on it.*/
-    public ClientHandler(Socket socket){
-        try {
-            //
-            this.socket=socket;
-            this.bufferedWriter=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            //wrap the byte-stream in character stream
-            this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+    public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw){
+        //
+        this.socket=socket;
+        bufferedReader=br;
+        bufferedWriter=bw;
 
-            //是不是在这里连到数据库里面去？？
-            this.client_name= bufferedReader.readLine();
-            this.password=bufferedReader.readLine();
+        //wrap the byte-stream in character stream
+        //this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            clientHandlers.add(this);
-            broadcastMessage("SERVER: "+ client_name + " has entered the chatroom! "); //TODO
-        }catch (IOException e){
-            closeEverything(socket,bufferedReader,bufferedWriter);  //TODO
-        }
+
+//            this.client_name= bufferedReader.readLine();
+//            this.password=bufferedReader.readLine();
+
+        clientHandlers.add(this);
+        broadcastMessage("SERVER: "+ client_name + " has entered the chatroom! ");
+        System.out.println("SERVER: "+ client_name + " has entered the chatroom! ");
     }
 
     /*Listening for messages. */
