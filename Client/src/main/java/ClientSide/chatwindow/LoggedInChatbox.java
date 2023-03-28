@@ -38,10 +38,9 @@ public class LoggedInChatbox {
 
     //为什么把这个变成class的函数就可以自动运行？
 
-    public void startEverything () {
+    public LoggedInChatbox () {
         System.out.println("first step ");
-
-        System.out.println(message);
+        message=" (null so far) ";
         setUserInfo();
 
        try{
@@ -57,8 +56,8 @@ public class LoggedInChatbox {
 
            clientNow.listenForMessage();
 
-           while (socketNow.isConnected()){
-               System.out.println("Connected(来自LoggedInChatbox ())");
+           if (socketNow.isConnected()){
+               System.out.println("Connected(来自LoggedInChatbox ())");   //到这一步都是正常的
                sendMessage(clientNow,br,bw);
            }
        }catch (IOException e){
@@ -67,15 +66,15 @@ public class LoggedInChatbox {
     }
 
     public void sendMessage(Client client, BufferedReader br, BufferedWriter bw){
-        String message= messageToSend.getText();
         //获取要发送的信息
         try {
-            bw.write(username+" enters: ");
+            bw.write(username);
+            bw.write(password);
             bw.newLine();
             bw.flush();
 
             if(!message.isBlank()){
-                bw.write(username+": "+messageToSend);
+                bw.write(username+": "+message);
                 bw.newLine();
                 bw.flush();
             }

@@ -16,7 +16,7 @@ public class Server {
      * generate a thread. */
     private final ServerSocket serverSocket;  //可能要final
 
-    public ArrayList<ClientHandler> cHandlers = new ArrayList<ClientHandler>();
+    public ArrayList<ClientHandler> cHandlers = new ArrayList<>();
 
     public Server(ServerSocket serverSocket){
         this.serverSocket=serverSocket;
@@ -34,7 +34,9 @@ public class Server {
                 BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter);
+                String un= bufferedReader.readLine();
+                String pw= bufferedReader.readLine();
+                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un, pw );
                 cHandlers.add(clientHandler);
 
                 //multi threading

@@ -28,25 +28,28 @@ public class ClientHandler implements Runnable{
     private String client_name;
     private String password;
 
-    private void setInfo(){
-        client_name= Page2.giveUsername();
-        password= Page2.givePassword();
-        System.out.println(" Clienthandler has set the user info ");
-    }
+
+    //这两个在不同的module啊！  怎么办？
+//    public void setInfo(){
+//        client_name= username;
+//        password= password;
+//        System.out.println(" Clienthandler has set the user info: " + client_name+", "+ password);
+//    }
     /*constructor: Take parameters and uniquely identify any incoming requests.
     * para: socket, datainputstream, dataoutputstream
     * Whenever we receive any request of client,
     * the server extracts its port number, the DataInputStream object and DataOutputStream object
     * and creates a new thread object of this class and invokes start() method on it.*/
-    public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw){
+    public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw, String username, String password){
         //
         this.socket=socket;
         bufferedReader=br;
         bufferedWriter=bw;
+        client_name=username;
+        this.password=password;
+
         //wrap the byte-stream in character stream
         //this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-        setInfo();
 
         clientHandlers.add(this);
 
@@ -59,7 +62,7 @@ public class ClientHandler implements Runnable{
     @Override
     public void run(){
 
-        setInfo();
+        //setInfo();  //TODO
         String message_from_client;
 
         while (socket.isConnected()){
@@ -76,7 +79,7 @@ public class ClientHandler implements Runnable{
     }
 
     public void broadcastMessage(String messageToSent){
-        setInfo();
+        //setInfo();
         //For each client-handler, for each iteration
         for (ClientHandler clientHandler: clientHandlers){
             try{
@@ -86,15 +89,7 @@ public class ClientHandler implements Runnable{
 
                     clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
                     clientHandler.bufferedWriter.flush();    //a buffer might not be full, not we manually flush it
-                }else {
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
-                    alert.setWidth(400);
-                    alert.setTitle("ERROR");
-                    alert.setHeaderText("SORRY but ");
-                    alert.setContentText("There are no other users. ");
-                    alert.show();
                 }
-
             }catch (IOException e){
                 closeEverything(socket,bufferedReader,bufferedWriter);
             }
@@ -103,7 +98,7 @@ public class ClientHandler implements Runnable{
 
     /*When a client leaves the Chatroom. */
     public void removeClientHandler(){
-        setInfo();
+        //setInfo();
         clientHandlers.remove(this);
         broadcastMessage("SERVER: "+client_name+ " has left the chatroom.");
     }
