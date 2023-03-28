@@ -4,6 +4,7 @@ package ServerSide;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 
 /*The class that create a server and establish a server socket
@@ -13,7 +14,9 @@ import java.net.Socket;
 public class Server {
     /*As long as there is a client connecting in, we will
      * generate a thread. */
-    private ServerSocket serverSocket;  //可能要final
+    private final ServerSocket serverSocket;  //可能要final
+
+    public ArrayList<ClientHandler> cHandlers = new ArrayList<ClientHandler>();
 
     public Server(ServerSocket serverSocket){
         this.serverSocket=serverSocket;
@@ -32,6 +35,7 @@ public class Server {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
                 ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter);
+                cHandlers.add(clientHandler);
 
                 //multi threading
                 Thread thread = new Thread(clientHandler);
@@ -54,7 +58,6 @@ public class Server {
             e.printStackTrace();
         }
     }
-
 
     public static void main(String[] args) throws IOException{
         ServerSocket serverSocket1 = new ServerSocket(1233);

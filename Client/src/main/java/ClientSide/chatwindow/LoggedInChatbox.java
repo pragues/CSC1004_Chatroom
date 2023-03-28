@@ -8,9 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -38,21 +37,24 @@ public class LoggedInChatbox {
     }
 
     //为什么把这个变成class的函数就可以自动运行？
-    public LoggedInChatbox () {
-       try{
-           setUserInfo();
 
+    public void startEverything () {
+        System.out.println("first step ");
+
+        System.out.println(message);
+        setUserInfo();
+
+       try{
            InetAddress ip= InetAddress.getByName("localhost");
            System.out.println("Client ip: "+ip+" (LoggedInChatbox) ");
-
            //创建本机的对象
            Socket socketNow= new Socket(ip, ServerPort);
 
            BufferedReader br=new BufferedReader(new InputStreamReader(socketNow.getInputStream()));
            BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socketNow.getOutputStream()));
 
-
            Client clientNow=new Client(socketNow,username,password);
+
            clientNow.listenForMessage();
 
            while (socketNow.isConnected()){
@@ -65,13 +67,12 @@ public class LoggedInChatbox {
     }
 
     public void sendMessage(Client client, BufferedReader br, BufferedWriter bw){
+        String message= messageToSend.getText();
         //获取要发送的信息
         try {
-            bw.write(username);
+            bw.write(username+" enters: ");
             bw.newLine();
             bw.flush();
-
-            message= messageToSend.getText();
 
             if(!message.isBlank()){
                 bw.write(username+": "+messageToSend);
@@ -87,27 +88,29 @@ public class LoggedInChatbox {
     @FXML
     public void setSendMessage(ActionEvent event )throws IOException{sendFunction();}
 
-    //chatbox clear 按钮的函数
     @FXML
     public void setClearMessage(ActionEvent event)throws IOException{clearFunction();}
 
     public void clearFunction() {
-        String text =messageToSend.getText();
-
-        messageToSend.setText("");
+        messageToSend.clear();
     }
 
     public void sendFunction() {
-        String text = messageToSend.getText();
-        System.out.println(username+": "+text);
+        System.out.println(username+": "+message);
         //TODO
-        // 将已发送的消息显示
+        // 将已发送的消息在scrollpane显示
 
-
-        messageToSend.setText("");
+        messageToSend.clear();
     }
+    @FXML
     public void setOnKeyPressed(KeyEvent keyEvent) {
         //TODO
         // 按回车发消息
     }
+
+    @FXML
+    public void setMessage(KeyEvent keyEvent){
+        message=messageToSend.getText();
+    }
+
 }

@@ -87,18 +87,5 @@ public class Client {
         }
     }
 
-//    public static void main(String[] args) throws IOException {
-//        Scanner scanner =new Scanner(System.in);
-//        System.out.println("Enter your user name for the group-chat: ");
-//        String username= scanner.nextLine();
-//        String passcode= scanner.nextLine();
-//        Socket socket = new Socket("localhost", 3306);
-//        Client client= new Client(socket,username,passcode);
-//
-//        //infinite while loop
-//        client.listenForMessage();
-//        client.sendMessage();
-//    }
-
 
 }

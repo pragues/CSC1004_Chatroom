@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
     </list>
@@ -98,7 +100,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.32738853&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalResources&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -122,7 +124,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Page1">
-    <configuration name="Page1" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Page1" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="MAIN_CLASS_NAME" value="ClientSide.login.Page1" />
       <module name="Client" />
@@ -215,7 +217,11 @@
       <workItem from="1679388655060" duration="1634000" />
       <workItem from="1679879849678" duration="1990000" />
       <workItem from="1679970819822" duration="4159000" />
-      <workItem from="1679979165182" duration="8442000" />
+      <workItem from="1679979165182" duration="9079000" />
+      <workItem from="1679988969411" duration="4461000" />
+      <workItem from="1679996051798" duration="3962000" />
+      <workItem from="1680000931383" duration="4679000" />
+      <workItem from="1680006488117" duration="3245000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -357,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679981914227</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="commit">
+      <created>1679987782669</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1679987782669</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +405,7 @@
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java</url>
           <line>29</line>
-          <properties field="startUp" class="ClientSide.client.login.Page1" />
+          <properties field="startUp" class="ClientSide.login.Page1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
@@ -409,29 +422,19 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="25" />
+          <line>41</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>
           <line>42</line>
-          <properties class="ClientSide.client.login.Page3" method="signUpUser">
+          <properties class="ClientSide.login.Page3">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -445,6 +448,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java</url>
+          <line>40</line>
+          <properties class="ClientSide.chatwindow.LoggedInChatbox" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

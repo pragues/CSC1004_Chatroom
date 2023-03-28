@@ -1,6 +1,7 @@
 package ServerSide;
 
 import ClientSide.login.Page2;
+import javafx.scene.control.Alert;
 
 import java.io.*;
 import java.net.Socket;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class ClientHandler implements Runnable{
     //every instance of this class. Keep track of our clients so that when broadcast a message everyone can see it
     //static: 让其属于这个class而不是属于一个object of this class
-    public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
+    public ArrayList<ClientHandler> clientHandlers = new ArrayList<ClientHandler>();
 
     /*//this socket will be passed from our socket class
     *Establish a connection between the client and the server*/
@@ -30,6 +31,7 @@ public class ClientHandler implements Runnable{
     private void setInfo(){
         client_name= Page2.giveUsername();
         password= Page2.givePassword();
+        System.out.println(" Clienthandler has set the user info ");
     }
     /*constructor: Take parameters and uniquely identify any incoming requests.
     * para: socket, datainputstream, dataoutputstream
@@ -57,6 +59,7 @@ public class ClientHandler implements Runnable{
     @Override
     public void run(){
 
+        setInfo();
         String message_from_client;
 
         while (socket.isConnected()){
@@ -73,16 +76,25 @@ public class ClientHandler implements Runnable{
     }
 
     public void broadcastMessage(String messageToSent){
+        setInfo();
         //For each client-handler, for each iteration
         for (ClientHandler clientHandler: clientHandlers){
             try{
                 //why clientHandler.client_name could be null? 莫不是因为我只开了一个client？
-                if (!clientHandler.client_name.equals(client_name)){
+                if (!clientHandler.client_name.equals(client_name)) {
                     clientHandler.bufferedWriter.write(messageToSent);
 
                     clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
                     clientHandler.bufferedWriter.flush();    //a buffer might not be full, not we manually flush it
+                }else {
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setWidth(400);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("SORRY but ");
+                    alert.setContentText("There are no other users. ");
+                    alert.show();
                 }
+
             }catch (IOException e){
                 closeEverything(socket,bufferedReader,bufferedWriter);
             }
@@ -91,6 +103,7 @@ public class ClientHandler implements Runnable{
 
     /*When a client leaves the Chatroom. */
     public void removeClientHandler(){
+        setInfo();
         clientHandlers.remove(this);
         broadcastMessage("SERVER: "+client_name+ " has left the chatroom.");
     }
