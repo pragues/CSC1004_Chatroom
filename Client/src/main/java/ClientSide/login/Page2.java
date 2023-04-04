@@ -52,7 +52,7 @@ public class Page2 {
         jdbc2.initConnection();
         boolean checkUser= jdbc2.searchForId(username);
 
-        if (checkUser==false){
+        if (!checkUser){
             System.out.println("The user does not exist. ");
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
@@ -62,23 +62,15 @@ public class Page2 {
         }else {
             boolean go= jdbc2.confirmForPassword(username,password);
             jdbc2.closeConnection();
-            if (go==true){
-
-//                //Start the server first while the info is right
-//                ServerSocket serverSocket1 = new ServerSocket(1233);
-//                //The server object of this class
-//                Server server =new Server(serverSocket1);
-//                server.startServer();
-                //TODO
-                //目前server都没有close
+            if (go){
 
                 System.out.println("USER: "+username +";  PASSWORD: "+ password+ ";  has logged in successfully"+"（来自Page2）");
 
-//                Alert alert=new Alert(Alert.AlertType.INFORMATION);
-//                alert.setTitle("LOGIN! ");
-//                alert.setHeaderText("Login successfully!");
-//                alert.setContentText("Please click to continue! ");
-//                alert.show();
+                Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("LOGIN! ");
+                alert.setHeaderText("Login successfully!");
+                alert.setContentText("Please click to continue! ");
+                alert.show();
 
                 URL fxmlLocation = getClass().getResource("/Chatbox.fxml");
                 Parent parent= FXMLLoader.load(fxmlLocation);
@@ -89,8 +81,6 @@ public class Page2 {
                 window.setHeight(702.0);
                 window.setWidth(847.0);
                 window.show();
-
-                LoggedInChatbox loggedInChatbox= new LoggedInChatbox();
 
             }else {
                 Alert alert=new Alert(Alert.AlertType.ERROR);
@@ -105,6 +95,4 @@ public class Page2 {
         }
         System.out.println(checkUser);
     }
-
-
 }

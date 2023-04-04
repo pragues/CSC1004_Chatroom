@@ -36,10 +36,8 @@ public class LoggedInChatbox {
         System.out.println("Username: "+username+" Password: "+password +"(loggedInChatbox: setInfo)");
     }
 
-    //为什么把这个变成class的函数就可以自动运行？
-
     public LoggedInChatbox () {
-        System.out.println("first step ");
+        System.out.println("first step: ");
         message=" (null so far) ";
         setUserInfo();
 
@@ -78,11 +76,18 @@ public class LoggedInChatbox {
                 bw.newLine();
                 bw.flush();
             }
+
+            //TODO: 在这里在scroll-pane上写东西: addTextInScrollPane
+            addTextInScrollPane(username, message);
+
         }catch (IOException E){
             E.printStackTrace();
         }
     }
 
+    public void addTextInScrollPane(String userName, String msg){
+
+    }
     //chatbox send按钮的函数
     @FXML
     public void setSendMessage(ActionEvent event )throws IOException{sendFunction();}
@@ -97,7 +102,7 @@ public class LoggedInChatbox {
     public void sendFunction() {
         System.out.println(username+": "+message);
         //TODO
-        // 将已发送的消息在scrollpane显示
+        // 将已发送的消息在scroll-pane显示
 
         messageToSend.clear();
     }

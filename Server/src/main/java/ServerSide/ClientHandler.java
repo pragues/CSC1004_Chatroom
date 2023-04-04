@@ -13,7 +13,7 @@ public class ClientHandler implements Runnable{
     //static: 让其属于这个class而不是属于一个object of this class
     public ArrayList<ClientHandler> clientHandlers = new ArrayList<ClientHandler>();
 
-    /*//this socket will be passed from our socket class
+    /*This socket will be passed from our socket class
     *Establish a connection between the client and the server*/
     private Socket socket;
 
@@ -28,18 +28,12 @@ public class ClientHandler implements Runnable{
     private String client_name;
     private String password;
 
-
-    //这两个在不同的module啊！  怎么办？
-//    public void setInfo(){
-//        client_name= username;
-//        password= password;
-//        System.out.println(" Clienthandler has set the user info: " + client_name+", "+ password);
-//    }
     /*constructor: Take parameters and uniquely identify any incoming requests.
     * para: socket, datainputstream, dataoutputstream
     * Whenever we receive any request of client,
     * the server extracts its port number, the DataInputStream object and DataOutputStream object
-    * and creates a new thread object of this class and invokes start() method on it.*/
+    * and creates a new thread object of this class and invokes start() method on it.
+    * */
     public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw, String username, String password){
         //
         this.socket=socket;
@@ -62,18 +56,26 @@ public class ClientHandler implements Runnable{
     @Override
     public void run(){
 
-        //setInfo();  //TODO
         String message_from_client;
 
         while (socket.isConnected()){
             try {
-                //还是需要在TextArea和bufferedReader 之间建立联系
-                // TODO
-                message_from_client=bufferedReader.readLine(); //This is a blocking operation
+                System.out.println("The thread is running ");
+
+                // TODO：这之后就不能使了？
+                //能run但是没有readline？
+                message_from_client=bufferedReader.readLine(); //This is a blocking operation: 只读取一行数据域
+
+                System.out.println(message_from_client);
+
+                //将一个client的内容broadcast，显示到所有的client
                 broadcastMessage(message_from_client);
+
             }catch (IOException e){
+
                 closeEverything(socket,bufferedReader,bufferedWriter);
                 break;  //break out when client disconnects
+
             }
         }
     }
@@ -83,10 +85,13 @@ public class ClientHandler implements Runnable{
         //For each client-handler, for each iteration
         for (ClientHandler clientHandler: clientHandlers){
             try{
+                //通过server给其余的client发送期中一个client发送的消息
                 //why clientHandler.client_name could be null? 莫不是因为我只开了一个client？
+                //这里之后的似乎都没有run起来？？？
                 if (!clientHandler.client_name.equals(client_name)) {
                     clientHandler.bufferedWriter.write(messageToSent);
 
+                    System.out.println(" 来自server的：clientHandler.bufferedWriter.write(messageToSent);");
                     clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
                     clientHandler.bufferedWriter.flush();    //a buffer might not be full, not we manually flush it
                 }

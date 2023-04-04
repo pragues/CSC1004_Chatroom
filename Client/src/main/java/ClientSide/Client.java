@@ -30,6 +30,7 @@ public class Client {
         }
     }
 
+    //这个没有用到
     public void sendMessage(){
         try{
             bufferedWriter.write(username);

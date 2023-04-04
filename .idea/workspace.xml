@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/WebpageChat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
     </list>
@@ -23,6 +26,7 @@
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -80,6 +84,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -216,7 +221,13 @@
       <workItem from="1679988969411" duration="4461000" />
       <workItem from="1679996051798" duration="3962000" />
       <workItem from="1680000931383" duration="4679000" />
-      <workItem from="1680006488117" duration="6156000" />
+      <workItem from="1680006488117" duration="6728000" />
+      <workItem from="1680020153880" duration="236000" />
+      <workItem from="1680058523433" duration="664000" />
+      <workItem from="1680147117969" duration="88000" />
+      <workItem from="1680590200175" duration="2150000" />
+      <workItem from="1680594623572" duration="1376000" />
+      <workItem from="1680597276901" duration="1771000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -372,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680009793258</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="commit">
+      <created>1680012819699</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680012819699</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,6 +436,10 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="24" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="34" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>
           <line>43</line>
@@ -425,7 +447,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java</url>
-          <line>86</line>
+          <line>90</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

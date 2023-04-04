@@ -34,6 +34,7 @@ public class Server {
                 BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
+                //从这里首先读取username和password
                 String un= bufferedReader.readLine();
                 String pw= bufferedReader.readLine();
                 ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un, pw );
