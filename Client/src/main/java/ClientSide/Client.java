@@ -31,24 +31,28 @@ public class Client {
     }
 
     //这个没有用到
-    public void sendMessage(){
+    public void sendMessage(String message){
         try{
             bufferedWriter.write(username);
             bufferedWriter.newLine();
             bufferedWriter.flush();
+            bufferedWriter.write(password);
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
+            System.out.println(username+", "+password+": Sent message（Client.java）");
 
-            //get Input from the console 所以是不是就是这里的scanner要改成 textarea的部分
-            //TODO
-            Scanner scanner =  new Scanner(System.in);
+            String mToSend= username+ ": "+message;
+            //At client side:String messageToBroadcast=bufferedReader.readLine();
+//            bufferedWriter.write(mToSend);
+//            bufferedWriter.newLine();
+//            bufferedWriter.flush();
 
-
-            while(socket.isConnected()){
-                //TODO
-                String messageToSend =scanner.nextLine();
-                bufferedWriter.write(username+": "+messageToSend);
+            if (socket.isConnected()){
+                bufferedWriter.write(mToSend);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
+
         }catch (IOException e){
             closeEverything(socket,bufferedReader,bufferedWriter);
         }
@@ -59,17 +63,18 @@ public class Client {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String msgFromGroupChat;
-                while (socket.isConnected()){
+                String groupMessageFromServer;
+                while(socket.isConnected()){
                     try{
-                        msgFromGroupChat= bufferedReader.readLine();
-                        System.out.println(msgFromGroupChat);
+                        groupMessageFromServer= bufferedReader.readLine();  //这里的reader是client这一边的reader？
+                        System.out.println(username+": "+groupMessageFromServer+"(listenForMessage)");
                     }catch (IOException e){
-                        closeEverything(socket,bufferedReader,bufferedWriter);
+                        e.printStackTrace();
                     }
                 }
             }
         }).start();
+
     }
 
     public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
@@ -87,6 +92,4 @@ public class Client {
             e.printStackTrace();
         }
     }
-
-
 }

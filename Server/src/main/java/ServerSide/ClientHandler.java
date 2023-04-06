@@ -26,7 +26,8 @@ public class ClientHandler implements Runnable{
     private BufferedWriter bufferedWriter;
 
     private String client_name;
-    private String password;
+    private String pass_word;
+    private String message;
 
     /*constructor: Take parameters and uniquely identify any incoming requests.
     * para: socket, datainputstream, dataoutputstream
@@ -34,45 +35,40 @@ public class ClientHandler implements Runnable{
     * the server extracts its port number, the DataInputStream object and DataOutputStream object
     * and creates a new thread object of this class and invokes start() method on it.
     * */
-    public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw, String username, String password){
-        //
+    public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw, String username, String msg){
+
+            //TODO:上下两个有没有什么不一样的地方
+            bufferedReader=br;
+            bufferedWriter=bw;
+            client_name= username;
+            message= msg;
+
+            clientHandlers.add(this);
+
+            //broadcastMessage(msg);
+            System.out.println("SERVER: "+ client_name + " has entered the chatroom! ");
+
         this.socket=socket;
-        bufferedReader=br;
-        bufferedWriter=bw;
-        client_name=username;
-        this.password=password;
 
-        //wrap the byte-stream in character stream
-        //this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-        clientHandlers.add(this);
-
-        broadcastMessage("SERVER: "+ client_name + " has entered the chatroom! ");
-        System.out.println("SERVER: "+ client_name + " has entered the chatroom! ");
     }
 
-
-    /*这里面的是每一个Thread都会run的东西 */
+    /*每一个Thread去run的东西 */
     @Override
     public void run(){
-
-        String message_from_client;
+        String newMessage;
+        //String message_from_client;
+        //System.out.println("dididididi+ "+message);
 
         while (socket.isConnected()){
+
             try {
-                System.out.println("The thread is running ");
 
                 // TODO：这之后就不能使了？
-                //能run但是没有readline？
-                message_from_client=bufferedReader.readLine(); //This is a blocking operation: 只读取一行数据域
-
-                System.out.println(message_from_client);
-
-                //将一个client的内容broadcast，显示到所有的client
-                broadcastMessage(message_from_client);
+                newMessage=bufferedReader.readLine(); //This is a blocking operation: 只读取一行数据域
+                //System.out.println("dididididi"+newMessage);
+                broadcastMessage(newMessage);
 
             }catch (IOException e){
-
                 closeEverything(socket,bufferedReader,bufferedWriter);
                 break;  //break out when client disconnects
 
@@ -81,11 +77,10 @@ public class ClientHandler implements Runnable{
     }
 
     public void broadcastMessage(String messageToSent){
-        //setInfo();
         //For each client-handler, for each iteration
         for (ClientHandler clientHandler: clientHandlers){
             try{
-                //通过server给其余的client发送期中一个client发送的消息
+                //通过server给所有人发送期中一个client发送的消息
                 //why clientHandler.client_name could be null? 莫不是因为我只开了一个client？
                 //这里之后的似乎都没有run起来？？？
                 if (!clientHandler.client_name.equals(client_name)) {

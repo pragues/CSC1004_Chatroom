@@ -28,7 +28,8 @@ public class LoggedInChatbox {
     private ScrollPane scrollPane;
 
     //发送之后重载成“ ”
-    private String message;
+    private String message="";    //初始化解决 “The message could be null ”的问题
+
     final static int ServerPort=1233;
     private void setUserInfo(){
         username= Page2.giveUsername();
@@ -38,7 +39,6 @@ public class LoggedInChatbox {
 
     public LoggedInChatbox () {
         System.out.println("first step: ");
-        message=" (null so far) ";
         setUserInfo();
 
        try{
@@ -47,63 +47,48 @@ public class LoggedInChatbox {
            //创建本机的对象
            Socket socketNow= new Socket(ip, ServerPort);
 
-           BufferedReader br=new BufferedReader(new InputStreamReader(socketNow.getInputStream()));
-           BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socketNow.getOutputStream()));
+           //BufferedReader br=new BufferedReader(new InputStreamReader(socketNow.getInputStream()));
+           //BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socketNow.getOutputStream()));
 
            Client clientNow=new Client(socketNow,username,password);
 
+           //TODO:这个没有起作用
            clientNow.listenForMessage();
 
            if (socketNow.isConnected()){
-               System.out.println("Connected(来自LoggedInChatbox ())");   //到这一步都是正常的
-               sendMessage(clientNow,br,bw);
+               System.out.println("Connected(来自LoggedInChatbox ())");
+           }
+           while (socketNow.isConnected()){
+
+               clientNow.sendMessage(message);  //可以使
+
+               addTextInScrollPane(username, message);
+
            }
        }catch (IOException e){
            e.printStackTrace();
        }
     }
 
-    public void sendMessage(Client client, BufferedReader br, BufferedWriter bw){
-        //获取要发送的信息
-        try {
-            bw.write(username);
-            bw.write(password);
-            bw.newLine();
-            bw.flush();
-
-            if(!message.isBlank()){
-                bw.write(username+": "+message);
-                bw.newLine();
-                bw.flush();
-            }
-
-            //TODO: 在这里在scroll-pane上写东西: addTextInScrollPane
-            addTextInScrollPane(username, message);
-
-        }catch (IOException E){
-            E.printStackTrace();
-        }
-    }
-
     public void addTextInScrollPane(String userName, String msg){
-
+        //TODO：这个怎么保证每次发送完消息之后message已经clear了？
     }
+
+
     //chatbox send按钮的函数
     @FXML
-    public void setSendMessage(ActionEvent event )throws IOException{sendFunction();}
+    public void setSendMessage(ActionEvent event ){sendFunction();}
 
     @FXML
-    public void setClearMessage(ActionEvent event)throws IOException{clearFunction();}
+    public void setClearMessage(ActionEvent event){clearFunction();}
 
     public void clearFunction() {
         messageToSend.clear();
     }
 
     public void sendFunction() {
-        System.out.println(username+": "+message);
-        //TODO
-        // 将已发送的消息在scroll-pane显示
-
+        System.out.println(username+": "+message+"(ActionEvent send printing)");
+        addTextInScrollPane(username, message);
         messageToSend.clear();
     }
     @FXML

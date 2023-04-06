@@ -1,6 +1,5 @@
 package ClientSide.login;
 
-import ClientSide.chatwindow.LoggedInChatbox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
 
 
 /*This class implement the clients who already got an acount.
@@ -28,7 +26,6 @@ public class Page2 {
     private TextField userName;
     @FXML
     private TextField passWord;
-    private ResultSet resultSet;  //java.sql
     private static String username;
     private static String password;
 
@@ -43,7 +40,6 @@ public class Page2 {
 
     @FXML
     public void setLogin(ActionEvent event)throws IOException{
-        //转场到PageCreateUser
 
         getUsername(event);
         getPassword(event);

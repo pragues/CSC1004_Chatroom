@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/WebpageChat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
@@ -227,7 +226,11 @@
       <workItem from="1680147117969" duration="88000" />
       <workItem from="1680590200175" duration="2150000" />
       <workItem from="1680594623572" duration="1376000" />
-      <workItem from="1680597276901" duration="1771000" />
+      <workItem from="1680597276901" duration="4321000" />
+      <workItem from="1680604242728" duration="57000" />
+      <workItem from="1680670742104" duration="17099000" />
+      <workItem from="1680739851550" duration="74000" />
+      <workItem from="1680764856141" duration="1784000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -390,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680012819699</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="commit">
+      <created>1680599069131</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680599069131</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +457,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java</url>
-          <line>90</line>
+          <line>85</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
@@ -461,7 +471,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java</url>
-          <line>46</line>
+          <line>42</line>
           <properties class="ClientSide.login.Page2">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

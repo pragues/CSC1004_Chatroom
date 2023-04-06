@@ -32,12 +32,20 @@ public class Server {
 
                 //obtain the input and output stream on the server side
                 BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                BufferedWriter bufferedWriter= new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
                 //从这里首先读取username和password
                 String un= bufferedReader.readLine();
                 String pw= bufferedReader.readLine();
-                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un, pw );
+                System.out.println("username:"+un+"+ password: "+pw+ "(startServer)");
+
+                //TODO:最开始的message是空的，怎么完成不停的更新？
+                String messageToBroadcast=bufferedReader.readLine();
+                System.out.println(messageToBroadcast+ "(是否在server这里接受到了）");
+                System.out.println(messageToBroadcast);
+
+                //TODO
+                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un, messageToBroadcast );
                 cHandlers.add(clientHandler);
 
                 //multi threading
