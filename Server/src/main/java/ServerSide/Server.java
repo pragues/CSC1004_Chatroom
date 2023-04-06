@@ -12,8 +12,7 @@ import java.util.ArrayList;
 * The main class of the server module
 * */
 public class Server {
-    /*As long as there is a client connecting in, we will
-     * generate a thread. */
+
     private final ServerSocket serverSocket;  //可能要final
 
     public ArrayList<ClientHandler> cHandlers = new ArrayList<>();
@@ -41,8 +40,10 @@ public class Server {
 
                 //TODO:最开始的message是空的，怎么完成不停的更新？
                 String messageToBroadcast=bufferedReader.readLine();
-                System.out.println(messageToBroadcast+ "(是否在server这里接受到了）");
                 System.out.println(messageToBroadcast);
+
+                String me1= bufferedReader.readLine();
+                System.out.println(me1+"+++++");
 
                 //TODO
                 ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un, messageToBroadcast );
@@ -50,8 +51,8 @@ public class Server {
 
                 //multi threading
                 Thread thread = new Thread(clientHandler);
-
                 thread.start();
+
             }
         }catch (IOException e){
             e.printStackTrace();
@@ -72,7 +73,6 @@ public class Server {
 
     public static void main(String[] args) throws IOException{
         ServerSocket serverSocket1 = new ServerSocket(1233);
-
         Server server =new Server(serverSocket1);
         server.startServer();
     }

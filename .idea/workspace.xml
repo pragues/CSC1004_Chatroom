@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
     </list>
@@ -230,7 +229,9 @@
       <workItem from="1680604242728" duration="57000" />
       <workItem from="1680670742104" duration="17099000" />
       <workItem from="1680739851550" duration="74000" />
-      <workItem from="1680764856141" duration="1784000" />
+      <workItem from="1680764856141" duration="7016000" />
+      <workItem from="1680771895023" duration="1069000" />
+      <workItem from="1680781933711" duration="4289000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -400,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680599069131</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="commit">
+      <created>1680766657630</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1680766657630</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,6 +458,10 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="34" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.SocketException" package="java.net" />
+          <option name="timeStamp" value="35" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>
           <line>43</line>
@@ -457,7 +469,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java</url>
-          <line>85</line>
+          <line>76</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

@@ -2,6 +2,7 @@ package ClientSide;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Client {
@@ -30,7 +31,6 @@ public class Client {
         }
     }
 
-    //这个没有用到
     public void sendMessage(String message){
         try{
             bufferedWriter.write(username);
@@ -42,12 +42,11 @@ public class Client {
             System.out.println(username+", "+password+": Sent message（Client.java）");
 
             String mToSend= username+ ": "+message;
+            System.out.println(message);
             //At client side:String messageToBroadcast=bufferedReader.readLine();
-//            bufferedWriter.write(mToSend);
-//            bufferedWriter.newLine();
-//            bufferedWriter.flush();
 
-            if (socket.isConnected()){
+            //TODO： while 的问题
+            if (socket.isConnected()&& !Objects.equals(message, "")){
                 bufferedWriter.write(mToSend);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();

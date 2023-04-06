@@ -37,35 +37,29 @@ public class ClientHandler implements Runnable{
     * */
     public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw, String username, String msg){
 
-            //TODO:上下两个有没有什么不一样的地方
             bufferedReader=br;
             bufferedWriter=bw;
             client_name= username;
             message= msg;
-
+            this.socket=socket;
             clientHandlers.add(this);
-
             //broadcastMessage(msg);
-            System.out.println("SERVER: "+ client_name + " has entered the chatroom! ");
-
-        this.socket=socket;
+            System.out.println("ClientHandler: "+ client_name + " has entered the chatroom! ");
 
     }
 
-    /*每一个Thread去run的东西 */
     @Override
     public void run(){
         String newMessage;
-        //String message_from_client;
-        //System.out.println("dididididi+ "+message);
 
         while (socket.isConnected()){
 
             try {
+                //This is a blocking operation: 只读取一行数据域
+                newMessage=bufferedReader.readLine();
+                System.out.println("dUI对对对: "+newMessage);
 
-                // TODO：这之后就不能使了？
-                newMessage=bufferedReader.readLine(); //This is a blocking operation: 只读取一行数据域
-                //System.out.println("dididididi"+newMessage);
+                //TODO: 这之后不能使
                 broadcastMessage(newMessage);
 
             }catch (IOException e){
@@ -80,9 +74,6 @@ public class ClientHandler implements Runnable{
         //For each client-handler, for each iteration
         for (ClientHandler clientHandler: clientHandlers){
             try{
-                //通过server给所有人发送期中一个client发送的消息
-                //why clientHandler.client_name could be null? 莫不是因为我只开了一个client？
-                //这里之后的似乎都没有run起来？？？
                 if (!clientHandler.client_name.equals(client_name)) {
                     clientHandler.bufferedWriter.write(messageToSent);
 
