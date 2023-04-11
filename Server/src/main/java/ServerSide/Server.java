@@ -5,6 +5,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Vector;
 
 
 /*The class that create a server and establish a server socket
@@ -15,8 +16,10 @@ public class Server {
 
     private final ServerSocket serverSocket;  //可能要final
 
-    public ArrayList<ClientHandler> cHandlers = new ArrayList<>();
+    //这个是因为client-handler里面所以改成static的
+    static ArrayList<ClientHandler> cHandlers = new ArrayList<>();
 
+    static Vector<ClientHandler> vHandlers= new Vector<>();
     public Server(ServerSocket serverSocket){
         this.serverSocket=serverSocket;
     }
@@ -39,17 +42,16 @@ public class Server {
                 System.out.println("username:"+un+"+ password: "+pw+ "(startServer)");
 
                 //TODO:最开始的message是空的，怎么完成不停的更新？
-                String messageToBroadcast=bufferedReader.readLine();
-                System.out.println(messageToBroadcast);
+//                String messageToBroadcast=bufferedReader.readLine();
+//                System.out.println(messageToBroadcast);
 
-                //TODO
                 ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un );
-                cHandlers.add(clientHandler);
-                clientHandler.broadcastMessage(messageToBroadcast);
 
                 Thread thread = new Thread(clientHandler);
-                thread.start();
 
+                cHandlers.add(clientHandler);
+
+                thread.start();
             }
         }catch (IOException e){
             e.printStackTrace();

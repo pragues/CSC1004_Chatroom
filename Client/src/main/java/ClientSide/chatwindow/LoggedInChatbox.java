@@ -38,11 +38,12 @@ public class LoggedInChatbox {
 
     @FXML
     private void initialize(){
-        //fxml 对应application的ini()
+
         groupChatMessage.setEditable(false);
+        groupChatMessage.setMouseTransparent(true);
     }
 
-    /* @ 初始化用户信息和socket、client对象*/
+    /* 初始化用户信息和socket、client对象*/
     @FXML
     private void setUserInfo(){
         username= Page2.giveUsername();
@@ -55,31 +56,69 @@ public class LoggedInChatbox {
             socketPrivate= new Socket(ip, ServerPort);
             clientPrivate=new Client(socketPrivate,username,password);
 
+
+
             //todo:如果后期没有问题要不要改成while
             if (socketPrivate.isConnected()) {
-                clientPrivate.listenForMessage();
+
+                clientPrivate.sendMessage(username);
+                clientPrivate.sendMessage(password);
+
+                BufferedReader bufferedReader= clientPrivate.getBufferedReader();
+                listenForMessage(socketPrivate, bufferedReader );
+
+                //clientPrivate.listenForMessage();
+                //String newMessageFromGroup= clientPrivate.listenForMessage();
+                //System.out.println("newMessageFromGroupChat"+newMessageFromGroup);
+                //addTextInScrollPane(newMessageFromGroup);
             }
-            clientPrivate.sendMessage(username);
-            clientPrivate.sendMessage(password);
+
         }catch (IOException e){
             e.printStackTrace();
         }
     }
+    public void listenForMessage(Socket socket, BufferedReader bufferedReader){
+        //CREATE A NEW THREAD AND PASS the runnable object
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("<listen for messages>");
 
+                Date date= new Date();
+                long sendTime= date.getTime();
+
+                while(socket.isConnected()){
+                    try{
+                        String receivedMessage;
+                        receivedMessage= bufferedReader.readLine();
+
+                        String out ="("+ date+sendTime+");"+receivedMessage;
+                        //listen了之后没有返回任何东西我确实听到了但是没有什么用
+                        //这里receive到了
+                        System.out.println(receivedMessage+" ("+username+ ": listenForMessage)");
+
+                        addTextInScrollPane(out);
+
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+    }
     public LoggedInChatbox () {
         setUserInfo();
-    }
 
-    public void addTextInScrollPane(String userName, String msg){
-
-        Date date= new Date();
-        String sendTime= String.valueOf(date.getTime());
-
-        groupChatMessage.appendText(userName+" ("+date+" "+sendTime+")"+": "+msg+"\n"+"\n");
     }
 
     @FXML
-    public void setSendMessage(ActionEvent event ){sendFunction(clientPrivate, socketPrivate);}
+    public void addTextInScrollPane(String msgWithUsername){
+        groupChatMessage.appendText(" "+msgWithUsername+"\n"+"\n");
+    }
+
+    @FXML
+    public void setSendMessage(ActionEvent event ){sendFunction();}
 
     @FXML
     public void setClearMessage(ActionEvent event){clearFunction();}
@@ -90,17 +129,16 @@ public class LoggedInChatbox {
 
 
     //TODO: 检查这里的parameter到底需不需要
-    public void sendFunction(Client client, Socket socket ) {
+    public void sendFunction() {
 
         if (socketPrivate.isConnected()){
-            System.out.println("Connected(来自LoggedInChatbox ().send)");
+            System.out.println("按了一次send(来自LoggedInChatbox ().send)");
         }
 
         if (socketPrivate.isConnected()&& !Objects.equals(message, "")){
             clientPrivate.sendMessage(message);  //可以使
-            addTextInScrollPane(username, message);
+            messageToSend.clear();
         }
-        messageToSend.clear();
     }
 
 
@@ -110,11 +148,11 @@ public class LoggedInChatbox {
         // 按回车发消息
     }
 
-
     @FXML
     public void setMessage(KeyEvent keyEvent){
         message=messageToSend.getText();
     }
+
 
 
 }

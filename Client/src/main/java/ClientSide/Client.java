@@ -2,6 +2,7 @@ package ClientSide;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Client {
     private BufferedWriter bufferedWriter;
     private String username;
     private String password;
+    private String receivedMessage;
 
     /*Function: Constructor of Client
     * Usage: Client client1= new Client(socket, username, passcode);
@@ -33,14 +35,6 @@ public class Client {
 
     public void sendMessage(String message){
         try{
-//            bufferedWriter.write(username);
-//            bufferedWriter.newLine();
-//            bufferedWriter.flush();
-//            bufferedWriter.write(password);
-//            bufferedWriter.newLine();
-//            bufferedWriter.flush();
-
-            //TODO
             String mToSend= username+ ": "+message;
 
             //TODO： while 的问题
@@ -48,7 +42,6 @@ public class Client {
                 bufferedWriter.write(mToSend);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
-                System.out.println(message);
             }
 
         }catch (IOException e){
@@ -56,23 +49,30 @@ public class Client {
         }
     }
 
-    public void listenForMessage(){
+    public BufferedReader getBufferedReader(){
+        return bufferedReader;
+    }
+    public String listenForMessage(){
         //CREATE A NEW THREAD AND PASS the runnable object
-        //listen for group message from the server
+        String out;
+
+        Date date= new Date();
+        long sendTime= date.getTime();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 System.out.println("<listen for messages>");
-                String messageSender;
-                String messagePass;
-                String groupMessageFromServer;
+
+                //String groupMessageFromServer;
                 while(socket.isConnected()){
                     try{
-                        messageSender= bufferedReader.readLine();
-                        messagePass= bufferedReader.readLine();
-                        groupMessageFromServer= bufferedReader.readLine();  //这里的reader是client这一边的reader？
+                        receivedMessage= bufferedReader.readLine();
 
-                        System.out.println(groupMessageFromServer+" ("+username+ " :listenForMessage)");
+                        //listen了之后没有返回任何东西我确实听到了但是没有什么用
+                        //这里receive到了
+                        System.out.println(receivedMessage+" ("+username+ ": listenForMessage)");
+
                     }catch (IOException e){
                         e.printStackTrace();
                     }
@@ -80,6 +80,9 @@ public class Client {
             }
         }).start();
 
+        out= "("+date+" "+sendTime+" ) "+ receivedMessage;
+        System.out.println("OUT: "+ out);
+        return out;
     }
 
     public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
