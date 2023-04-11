@@ -27,7 +27,7 @@ public class Server {
             while(!serverSocket.isClosed()){
                 //The program will halt here until a client connects;
                 Socket socket= serverSocket.accept();
-                System.out.println("A new client has connected! " + socket);
+                System.out.println("\n"+"A new client has connected! " + socket);
 
                 //obtain the input and output stream on the server side
                 BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -42,14 +42,11 @@ public class Server {
                 String messageToBroadcast=bufferedReader.readLine();
                 System.out.println(messageToBroadcast);
 
-                String me1= bufferedReader.readLine();
-                System.out.println(me1+"+++++");
-
                 //TODO
-                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un, messageToBroadcast );
+                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un );
                 cHandlers.add(clientHandler);
+                clientHandler.broadcastMessage(messageToBroadcast);
 
-                //multi threading
                 Thread thread = new Thread(clientHandler);
                 thread.start();
 

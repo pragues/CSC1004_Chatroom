@@ -14,6 +14,7 @@ import javafx.stage.WindowEvent;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Date;
 import java.util.Objects;
 
 public class LoggedInChatbox {
@@ -25,10 +26,12 @@ public class LoggedInChatbox {
     private Button clearMessage;
     @FXML
     private TextArea messageToSend;
-    @FXML
-    private ScrollPane scrollPane;
+
     private Socket socketPrivate;
     private Client clientPrivate;
+
+    @FXML
+    private TextArea groupChatMessage;
 
     private String message="";    //解决初始化“The message could be null ”的问题
 
@@ -39,6 +42,8 @@ public class LoggedInChatbox {
         username= Page2.giveUsername();
         password= Page2.givePassword();
 
+
+
         try{
             InetAddress ip= InetAddress.getByName("localhost");
             System.out.println("Client ip: "+ip+" (LoggedInChatbox) ");
@@ -46,6 +51,12 @@ public class LoggedInChatbox {
             socketPrivate= new Socket(ip, ServerPort);
             clientPrivate=new Client(socketPrivate,username,password);
 
+            //todo:如果后期没有问题要不要改成while
+            if (socketPrivate.isConnected()) {
+                clientPrivate.listenForMessage();
+            }
+            clientPrivate.sendMessage(username);
+            clientPrivate.sendMessage(password);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -53,42 +64,12 @@ public class LoggedInChatbox {
 
     public LoggedInChatbox () {
         setUserInfo();
-//
-//       try{
-//           InetAddress ip= InetAddress.getByName("localhost");
-//           System.out.println("Client ip: "+ip+" (LoggedInChatbox) ");
-//
-//           Socket socketNow= new Socket(ip, ServerPort);
-//
-//           //BufferedReader br=new BufferedReader(new InputStreamReader(socketNow.getInputStream()));
-//           //BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socketNow.getOutputStream()));
-//
-//           Client clientNow=new Client(socketNow,username,password);
-//
-//           //TODO:这个没有起作用
-//           //clientNow.listenForMessage();
-//
-//           if (socketNow.isConnected()){
-//               System.out.println("Connected(来自LoggedInChatbox ())");
-//               clientNow.sendMessage("diyige:"+message);
-//           }
-//
-//           //String messageNow= messageToSend.getText();
-//           //TODO: while的问题
-//           if (socketNow.isConnected()&& !Objects.equals(message, "")){
-//               clientNow.sendMessage(message);  //可以使
-//               addTextInScrollPane(username, message);
-//
-//           }
-//
-//
-//       }catch (IOException e){
-//           e.printStackTrace();
-//       }
     }
 
     public void addTextInScrollPane(String userName, String msg){
-        //TODO：这个怎么保证每次发送完消息之后message已经clear了？
+        Date date= new Date();
+        String sendTime= String.valueOf(date.getTime());
+        groupChatMessage.appendText(userName+" ("+date+" "+sendTime+")"+": "+msg+"\n"+"\n");
     }
 
 
@@ -103,12 +84,11 @@ public class LoggedInChatbox {
     }
 
 
+    //TODO: 检查这里的parameter到底需不需要
     public void sendFunction(Client client, Socket socket ) {
-        System.out.println(username+": "+message+"(ActionEvent send printing)");
 
         if (socketPrivate.isConnected()){
-            System.out.println("Connected(来自LoggedInChatbox ())");
-            //clientPrivate.sendMessage("diyige:"+message);
+            System.out.println("Connected(来自LoggedInChatbox ().send)");
         }
 
         if (socketPrivate.isConnected()&& !Objects.equals(message, "")){

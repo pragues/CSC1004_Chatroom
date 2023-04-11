@@ -33,23 +33,22 @@ public class Client {
 
     public void sendMessage(String message){
         try{
-            bufferedWriter.write(username);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-            bufferedWriter.write(password);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-            System.out.println(username+", "+password+": Sent message（Client.java）");
+//            bufferedWriter.write(username);
+//            bufferedWriter.newLine();
+//            bufferedWriter.flush();
+//            bufferedWriter.write(password);
+//            bufferedWriter.newLine();
+//            bufferedWriter.flush();
 
+            //TODO
             String mToSend= username+ ": "+message;
-            System.out.println(message);
-            //At client side:String messageToBroadcast=bufferedReader.readLine();
 
             //TODO： while 的问题
             if (socket.isConnected()&& !Objects.equals(message, "")){
                 bufferedWriter.write(mToSend);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
+                System.out.println(message);
             }
 
         }catch (IOException e){
@@ -59,14 +58,21 @@ public class Client {
 
     public void listenForMessage(){
         //CREATE A NEW THREAD AND PASS the runnable object
+        //listen for group message from the server
         new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("<listen for messages>");
+                String messageSender;
+                String messagePass;
                 String groupMessageFromServer;
                 while(socket.isConnected()){
                     try{
+                        messageSender= bufferedReader.readLine();
+                        messagePass= bufferedReader.readLine();
                         groupMessageFromServer= bufferedReader.readLine();  //这里的reader是client这一边的reader？
-                        System.out.println(username+": "+groupMessageFromServer+"(listenForMessage)");
+
+                        System.out.println(groupMessageFromServer+" ("+username+ " :listenForMessage)");
                     }catch (IOException e){
                         e.printStackTrace();
                     }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ClientHandler implements Runnable{
     //every instance of this class. Keep track of our clients so that when broadcast a message everyone can see it
     //static: 让其属于这个class而不是属于一个object of this class
-    public ArrayList<ClientHandler> clientHandlers = new ArrayList<ClientHandler>();
+    public ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
 
     /*This socket will be passed from our socket class
     *Establish a connection between the client and the server*/
@@ -30,20 +30,20 @@ public class ClientHandler implements Runnable{
     private String message;
 
     /*constructor: Take parameters and uniquely identify any incoming requests.
-    * para: socket, datainputstream, dataoutputstream
+
     * Whenever we receive any request of client,
     * the server extracts its port number, the DataInputStream object and DataOutputStream object
     * and creates a new thread object of this class and invokes start() method on it.
     * */
-    public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw, String username, String msg){
+    public ClientHandler(Socket socket, BufferedReader br, BufferedWriter bw, String username){
 
             bufferedReader=br;
             bufferedWriter=bw;
             client_name= username;
-            message= msg;
+            //message= msg;
             this.socket=socket;
             clientHandlers.add(this);
-            //broadcastMessage(msg);
+
             System.out.println("ClientHandler: "+ client_name + " has entered the chatroom! ");
 
     }
@@ -53,34 +53,40 @@ public class ClientHandler implements Runnable{
         String newMessage;
 
         while (socket.isConnected()){
-
             try {
                 //This is a blocking operation: 只读取一行数据域
                 newMessage=bufferedReader.readLine();
                 System.out.println("dUI对对对: "+newMessage);
-
-                //TODO: 这之后不能使
                 broadcastMessage(newMessage);
 
             }catch (IOException e){
                 closeEverything(socket,bufferedReader,bufferedWriter);
                 break;  //break out when client disconnects
-
             }
         }
     }
 
     public void broadcastMessage(String messageToSent){
         //For each client-handler, for each iteration
+        //TODO：现在只server能够接收到
         for (ClientHandler clientHandler: clientHandlers){
             try{
-                if (!clientHandler.client_name.equals(client_name)) {
-                    clientHandler.bufferedWriter.write(messageToSent);
+                clientHandler.bufferedWriter.write(messageToSent);
 
-                    System.out.println(" 来自server的：clientHandler.bufferedWriter.write(messageToSent);");
-                    clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
-                    clientHandler.bufferedWriter.flush();    //a buffer might not be full, not we manually flush it
-                }
+                System.out.println(messageToSent + " 来自clientHandler.bufferedWriter.write(messageToSent);");
+
+                clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
+                clientHandler.bufferedWriter.flush();
+
+
+//                if (!clientHandler.client_name.equals(client_name)) {
+//                     //a buffer might not be full, not we manually flush it
+//                    clientHandler.bufferedWriter.write(messageToSent);
+//
+//                    System.out.println(client_name+": "+messageToSent + " 来自server的：clientHandler.bufferedWriter.write(messageToSent);");
+//                    clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
+//                    clientHandler.bufferedWriter.flush();
+//                }
             }catch (IOException e){
                 closeEverything(socket,bufferedReader,bufferedWriter);
             }
@@ -89,7 +95,7 @@ public class ClientHandler implements Runnable{
 
     /*When a client leaves the Chatroom. */
     public void removeClientHandler(){
-        //setInfo();
+
         clientHandlers.remove(this);
         broadcastMessage("SERVER: "+client_name+ " has left the chatroom.");
     }
