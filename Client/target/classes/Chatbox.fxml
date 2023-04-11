@@ -34,6 +34,9 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
       </ScrollPane>
-      <TextArea fx:id="groupChatMessage" layoutX="200.0" layoutY="14.0" prefHeight="450.0" prefWidth="632.0" />
+      <TextArea fx:id="groupChatMessage" layoutX="220.0" layoutY="26.0" prefHeight="426.0" prefWidth="599.0">
+         <font>
+            <Font name="Bell MT" size="16.0" />
+         </font></TextArea>
    </children>
 </AnchorPane>

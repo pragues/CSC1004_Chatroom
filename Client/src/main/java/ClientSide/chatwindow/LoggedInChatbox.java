@@ -3,13 +3,10 @@ package ClientSide.chatwindow;
 import ClientSide.Client;
 import ClientSide.login.Page2;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.WindowEvent;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -25,6 +22,8 @@ public class LoggedInChatbox {
     @FXML
     private Button clearMessage;
     @FXML
+    private Button emojiList;
+    @FXML
     private TextArea messageToSend;
 
     private Socket socketPrivate;
@@ -37,12 +36,17 @@ public class LoggedInChatbox {
 
     final static int ServerPort=1233;
 
+    @FXML
+    private void initialize(){
+        //fxml 对应application的ini()
+        groupChatMessage.setEditable(false);
+    }
+
     /* @ 初始化用户信息和socket、client对象*/
+    @FXML
     private void setUserInfo(){
         username= Page2.giveUsername();
         password= Page2.givePassword();
-
-
 
         try{
             InetAddress ip= InetAddress.getByName("localhost");
@@ -67,11 +71,12 @@ public class LoggedInChatbox {
     }
 
     public void addTextInScrollPane(String userName, String msg){
+
         Date date= new Date();
         String sendTime= String.valueOf(date.getTime());
+
         groupChatMessage.appendText(userName+" ("+date+" "+sendTime+")"+": "+msg+"\n"+"\n");
     }
-
 
     @FXML
     public void setSendMessage(ActionEvent event ){sendFunction(clientPrivate, socketPrivate);}
@@ -105,9 +110,11 @@ public class LoggedInChatbox {
         // 按回车发消息
     }
 
+
     @FXML
     public void setMessage(KeyEvent keyEvent){
         message=messageToSend.getText();
     }
+
 
 }
