@@ -18,8 +18,6 @@ public class Server {
 
     //这个是因为client-handler里面所以改成static的
     static ArrayList<ClientHandler> cHandlers = new ArrayList<>();
-
-    static Vector<ClientHandler> vHandlers= new Vector<>();
     public Server(ServerSocket serverSocket){
         this.serverSocket=serverSocket;
     }
@@ -41,10 +39,6 @@ public class Server {
                 String pw= bufferedReader.readLine();
                 System.out.println("username:"+un+"+ password: "+pw+ "(startServer)");
 
-                //TODO:最开始的message是空的，怎么完成不停的更新？
-//                String messageToBroadcast=bufferedReader.readLine();
-//                System.out.println(messageToBroadcast);
-
                 ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un );
 
                 Thread thread = new Thread(clientHandler);
@@ -53,6 +47,7 @@ public class Server {
 
                 thread.start();
             }
+
         }catch (IOException e){
             e.printStackTrace();
             closeServerSocket();

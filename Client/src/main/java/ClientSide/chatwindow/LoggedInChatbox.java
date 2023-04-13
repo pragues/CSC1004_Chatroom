@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.*;
@@ -56,8 +57,6 @@ public class LoggedInChatbox {
             socketPrivate= new Socket(ip, ServerPort);
             clientPrivate=new Client(socketPrivate,username,password);
 
-
-
             //todo:如果后期没有问题要不要改成while
             if (socketPrivate.isConnected()) {
 
@@ -67,16 +66,14 @@ public class LoggedInChatbox {
                 BufferedReader bufferedReader= clientPrivate.getBufferedReader();
                 listenForMessage(socketPrivate, bufferedReader );
 
-                //clientPrivate.listenForMessage();
-                //String newMessageFromGroup= clientPrivate.listenForMessage();
-                //System.out.println("newMessageFromGroupChat"+newMessageFromGroup);
-                //addTextInScrollPane(newMessageFromGroup);
             }
 
         }catch (IOException e){
             e.printStackTrace();
         }
     }
+
+
     public void listenForMessage(Socket socket, BufferedReader bufferedReader){
         //CREATE A NEW THREAD AND PASS the runnable object
         new Thread(new Runnable() {
@@ -84,20 +81,11 @@ public class LoggedInChatbox {
             public void run() {
                 System.out.println("<listen for messages>");
 
-                Date date= new Date();
-                long sendTime= date.getTime();
-
                 while(socket.isConnected()){
                     try{
-                        String receivedMessage;
-                        receivedMessage= bufferedReader.readLine();
-
-                        String out ="("+ date+sendTime+");"+receivedMessage;
-                        //listen了之后没有返回任何东西我确实听到了但是没有什么用
-                        //这里receive到了
+                        String receivedMessage= bufferedReader.readLine();
+                        addTextInScrollPane(receivedMessage);
                         System.out.println(receivedMessage+" ("+username+ ": listenForMessage)");
-
-                        addTextInScrollPane(out);
 
                     }catch (IOException e){
                         e.printStackTrace();
@@ -107,18 +95,27 @@ public class LoggedInChatbox {
         }).start();
 
     }
-    public LoggedInChatbox () {
-        setUserInfo();
-
-    }
+    public LoggedInChatbox () {setUserInfo();}
 
     @FXML
     public void addTextInScrollPane(String msgWithUsername){
         groupChatMessage.appendText(" "+msgWithUsername+"\n"+"\n");
     }
 
+
     @FXML
-    public void setSendMessage(ActionEvent event ){sendFunction();}
+    public void setSendMessage(ActionEvent event ){
+        //Send Button 的正经函数
+
+        if (socketPrivate.isConnected()){
+            System.out.println("按了一次send(来自LoggedInChatbox ().send)");
+        }
+
+        if (socketPrivate.isConnected()&& !Objects.equals(message, "")){
+            clientPrivate.sendMessage(message);  //可以使
+            messageToSend.clear();
+        }
+    }
 
     @FXML
     public void setClearMessage(ActionEvent event){clearFunction();}
@@ -128,9 +125,10 @@ public class LoggedInChatbox {
     }
 
 
-    //TODO: 检查这里的parameter到底需不需要
+    //TODO: 检查这里的parameter到底需不需要; 如果接下来确实不用刻意删了
     public void sendFunction() {
 
+        //点击send按钮时实现的函数
         if (socketPrivate.isConnected()){
             System.out.println("按了一次send(来自LoggedInChatbox ().send)");
         }
@@ -144,15 +142,17 @@ public class LoggedInChatbox {
 
     @FXML
     public void setOnKeyPressed(KeyEvent keyEvent) {
-        //TODO
-        // 按回车发消息
+        //按回车发消息的快捷键
+        if (keyEvent.getCode()== KeyCode.ENTER){
+            clientPrivate.sendMessage(message);
+            messageToSend.clear();
+        }
+
     }
 
     @FXML
     public void setMessage(KeyEvent keyEvent){
         message=messageToSend.getText();
     }
-
-
 
 }

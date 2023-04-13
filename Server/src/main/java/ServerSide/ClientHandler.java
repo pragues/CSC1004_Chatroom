@@ -3,6 +3,7 @@ package ServerSide;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 
 //Runnable si a class such that all the instance methods are implemented through different threads
 public class ClientHandler implements Runnable{
@@ -35,7 +36,6 @@ public class ClientHandler implements Runnable{
             bufferedReader=br;
             bufferedWriter=bw;
             client_name= username;
-
             this.socket=socket;
 
             System.out.println("ClientHandler: "+ client_name + " has entered the chatroom! ");
@@ -62,15 +62,14 @@ public class ClientHandler implements Runnable{
     }
 
     public void broadcastMessage(String messageToSent, BufferedWriter bww){
-        //For each client-handler, for each iteration
-        //TODO：你为什么给自己发了那么多遍！
+
         for (ClientHandler clientHandler: Server.cHandlers){
             try{
-                //bw.write(messageToSent);
-
                 System.out.println(messageToSent + " 来自clientHandler.bufferedWriter.write(messageToSent);");
 
-                clientHandler.bufferedWriter.write(messageToSent);
+                Date date= new Date();
+                String otherSide= "("+ date+") "+messageToSent;
+                clientHandler.bufferedWriter.write(otherSide);
                 clientHandler.bufferedWriter.newLine();  //equivalent to press an enter key
                 clientHandler.bufferedWriter.flush();
 
@@ -82,9 +81,8 @@ public class ClientHandler implements Runnable{
 
     /*When a client leaves the Chatroom. */
     public void removeClientHandler(){
-
         Server.cHandlers.remove(this);
-        broadcastMessage("SERVER: "+client_name+ " has left the chatroom.", bufferedWriter);
+        broadcastMessage("SYSTEM: "+client_name+ " has left the chatroom.", bufferedWriter);
     }
 
     public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter) {

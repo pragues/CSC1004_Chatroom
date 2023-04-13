@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/EmojiCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/EmojiConversionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/EmojiListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/EmojiConversion.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/EmojiList.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
     </list>
@@ -23,9 +27,9 @@
         <option value="CSS File" />
         <option value="package-info" />
         <option value="JavaFXApplication" />
+        <option value="HTML File" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -244,7 +248,11 @@
       <workItem from="1681216128581" duration="4098000" />
       <workItem from="1681220267407" duration="817000" />
       <workItem from="1681226856662" duration="5212000" />
-      <workItem from="1681235172749" duration="294000" />
+      <workItem from="1681235172749" duration="2707000" />
+      <workItem from="1681300844179" duration="954000" />
+      <workItem from="1681301984490" duration="776000" />
+      <workItem from="1681382800698" duration="242000" />
+      <workItem from="1681384969095" duration="2535000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -442,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681200892059</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="commit">
+      <created>1681235646032</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1681235646032</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -12,7 +12,6 @@ public class Client {
     private BufferedWriter bufferedWriter;
     private String username;
     private String password;
-    private String receivedMessage;
 
     /*Function: Constructor of Client
     * Usage: Client client1= new Client(socket, username, passcode);
@@ -28,6 +27,7 @@ public class Client {
             this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.username=username;
             password=passcode;
+
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -51,38 +51,6 @@ public class Client {
 
     public BufferedReader getBufferedReader(){
         return bufferedReader;
-    }
-    public String listenForMessage(){
-        //CREATE A NEW THREAD AND PASS the runnable object
-        String out;
-
-        Date date= new Date();
-        long sendTime= date.getTime();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("<listen for messages>");
-
-                //String groupMessageFromServer;
-                while(socket.isConnected()){
-                    try{
-                        receivedMessage= bufferedReader.readLine();
-
-                        //listen了之后没有返回任何东西我确实听到了但是没有什么用
-                        //这里receive到了
-                        System.out.println(receivedMessage+" ("+username+ ": listenForMessage)");
-
-                    }catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
-
-        out= "("+date+" "+sendTime+" ) "+ receivedMessage;
-        System.out.println("OUT: "+ out);
-        return out;
     }
 
     public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
