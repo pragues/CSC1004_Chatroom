@@ -4,18 +4,28 @@ import ClientSide.Client;
 import ClientSide.login.Page2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.Date;
+import java.net.URL;
 import java.util.Objects;
 
-public class LoggedInChatbox {
+public class LoggedInChatbox  {
     private String username;
     private String password;
     @FXML
@@ -24,6 +34,8 @@ public class LoggedInChatbox {
     private Button clearMessage;
     @FXML
     private Button emojiList;
+    @FXML
+    private Button pictureSelection;
     @FXML
     private TextArea messageToSend;
 
@@ -124,22 +136,74 @@ public class LoggedInChatbox {
         messageToSend.clear();
     }
 
+    @FXML
+    public void setEmojiList(ActionEvent event){
+        try{
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/EmojiList.fxml"));
+//            Parent root = loader.load();
 
-    //TODO: 检查这里的parameter到底需不需要; 如果接下来确实不用刻意删了
-    public void sendFunction() {
-
-        //点击send按钮时实现的函数
-        if (socketPrivate.isConnected()){
-            System.out.println("按了一次send(来自LoggedInChatbox ().send)");
-        }
-
-        if (socketPrivate.isConnected()&& !Objects.equals(message, "")){
-            clientPrivate.sendMessage(message);  //可以使
-            messageToSend.clear();
+            URL fxmlLocation = getClass().getResource("/EmojiList.fxml");
+            Parent root= FXMLLoader.load(fxmlLocation);
+            
+            Scene scene = new Scene(root, 392, 300);
+            Stage primaryStage= (Stage)((Node)event.getSource()).getScene().getWindow();
+            primaryStage.setTitle("Emojis List");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 
 
+    //TODO: 选择文件夹中的图片，在会话框中显示，能够通过socket connection 发送出去
+    @FXML
+    public void setPictureSelection(ActionEvent event) {
+
+        String picAbsPath;
+        Stage fileDisplayer= new Stage();
+
+        FileChooser fileChooser= new FileChooser();
+        fileChooser.setTitle( "Choose your file to send");
+
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png"));
+
+        Label label = new Label("No file is being selected");
+
+        File file= fileChooser.showOpenDialog(fileDisplayer);
+
+        if (file!=null){
+            label.setText(file.getAbsolutePath() + "is being selected");
+            picAbsPath= file.getAbsolutePath();
+
+            messageToSend.appendText("The absolute path of the pic: "+picAbsPath);
+
+            try{
+                Image image= new Image(new FileInputStream(picAbsPath));
+                ImageView imageView= new ImageView(image);
+                imageView.setImage(image);
+                imageView.setX(50.0);
+                imageView.setY(40.0);
+                imageView.setFitHeight(460);
+                imageView.setFitWidth(510);
+                Group root= new Group(imageView);
+                Scene scene= new Scene(root, 600, 500 );
+                fileDisplayer.setTitle("Image Preview");
+                fileDisplayer.setScene(scene);
+                fileDisplayer.show();
+
+            }catch (IOException E){
+                E.printStackTrace();
+            }
+
+
+            //clientPrivate.sendMessage("\n"+picAbsPath);
+        }
+
+
+    }
     @FXML
     public void setOnKeyPressed(KeyEvent keyEvent) {
         //按回车发消息的快捷键
@@ -147,7 +211,6 @@ public class LoggedInChatbox {
             clientPrivate.sendMessage(message);
             messageToSend.clear();
         }
-
     }
 
     @FXML

@@ -1,5 +1,25 @@
 package ClientSide.chatwindow;
 
+/*
+ * Copyright (C) 2011 Miami-Dade County.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Note: this file incorporates source code from 3d party entities. Such code
+ * is copyrighted by those entities as indicated below.
+ */
+
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -19,7 +39,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-//import java.util.function.Function;
 import java.util.regex.Pattern;
 
 /**
@@ -119,7 +138,7 @@ import java.util.regex.Pattern;
  *
  * <p>
  * If you want to add properties to an object in bulk or append a sequence of elements to array,
- * use the {@link #with(Json, Json...opts)} method. When used on an object, this method expects another
+ * use the bb method. When used on an object, this method expects another
  * object as its argument and it will copy all properties of that argument into itself. Similarly,
  * when called on array, the method expects another array and it will append all elements of its
  * argument to itself.
@@ -215,10 +234,7 @@ import java.util.regex.Pattern;
  * <h3>Validating with JSON Schema</h3>
  *
  * <p>
- * Since version 1.3, mJson supports JSON Schema, draft 4. A schema is represented by the internal
- * class {@link mjson.Json.Schema}. To perform a validation, you have a instantiate a <code>Json.Schema</code>
- * using the factory method {@link mjson.Json.Schema} and then call its <code>validate</code> method
- * on a JSON instance:
+
  * </p>
  *
  * <pre><code>
@@ -512,8 +528,6 @@ public class Json implements java.io.Serializable
      * specification, by their referants.
      * </p>
      * @param json
-     * @param duplicate
-     * @param done
      * @return
      */
     static Json expandReferences(Json json,
@@ -1285,8 +1299,6 @@ public class Json implements java.io.Serializable
 
     /**
      * <p>
-     * Exposes some internal methods that are useful for {@link org.sharegov.mjson.Json.Factory} implementations
-     * or other extension/layers of the library.
      * </p>
      *
      * @author Borislav Iordanov
@@ -1397,7 +1409,6 @@ public class Json implements java.io.Serializable
      * Return the specified property of a <code>Json</code> object or <code>null</code>
      * if there's no such property. This method applies only to Json objects.
      * </p>
-     * @param The property name.
      * @return The JSON element that is the value of that property.
      */
     public Json at(String property)	{ throw new UnsupportedOperationException(); }

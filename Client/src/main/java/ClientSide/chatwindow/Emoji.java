@@ -5,6 +5,7 @@ public class Emoji {
     private String unicode;
     private String hex;
     private int emojiOrder;
+    private String category;
 
     public Emoji(String shortname, String unicode, String hex) {
         this.shortname = shortname;
@@ -48,6 +49,12 @@ public class Emoji {
         this.emojiOrder = emojiOrder;
     }
 
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
     @Override
     public String toString() {
         return "Emoji: [shortname: " +  shortname + ", unicode: " + unicode + ", hex: " + hex + "]";
