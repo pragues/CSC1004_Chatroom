@@ -2,6 +2,9 @@ package ClientSide.chatwindow;
 
 import ClientSide.Client;
 import ClientSide.login.Page2;
+import ClientSide.message.Message;
+import ClientSide.message.MessageType;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,22 +15,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.image.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Region;
+import javafx.scene.text.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
 import java.io.*;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.URL;
-import java.util.Objects;
+import java.net.*;
+import java.util.Date;
 
 public class LoggedInChatbox  {
-    private String username;
-    private String password;
+
     @FXML
     private Button sendMessage;
     @FXML
@@ -38,27 +40,42 @@ public class LoggedInChatbox  {
     private Button pictureSelection;
     @FXML
     private TextArea messageToSend;
+    @FXML
+    private TextFlow groupChatMessage;
 
+    private String username;
+    private String password;
     private Socket socketPrivate;
     private Client clientPrivate;
-
-    @FXML
-    private TextArea groupChatMessage;
-
-    private String message="";    //解决初始化“The message could be null ”的问题
-
     final static int ServerPort=1233;
 
     @FXML
     private void initialize(){
 
-        groupChatMessage.setEditable(false);
-        groupChatMessage.setMouseTransparent(true);
+        groupChatMessage.setTextAlignment(TextAlignment.JUSTIFY);
+        groupChatMessage.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        groupChatMessage.setPrefWidth(Region.USE_COMPUTED_SIZE);
+
+        //prevent the enter from adding a new line to inputMessageBox
+//        messageToSend.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent -> {
+//            if (keyEvent.getCode().equals(KeyCode.ENTER)){
+//                Message msgToSend= new Message();
+//                msgToSend.setSendTime(new Date());
+//                msgToSend.setType(MessageType.TEXT);
+//                msgToSend.setMsg(messageToSend.getText());
+//                msgToSend.setName(username);
+//                clientPrivate.sendMessage(msgToSend);
+//                keyEvent.consume();
+//            }
+//        });
     }
+
+    public LoggedInChatbox () {setUserInfo();}
 
     /* 初始化用户信息和socket、client对象*/
     @FXML
     private void setUserInfo(){
+        //string type
         username= Page2.giveUsername();
         password= Page2.givePassword();
 
@@ -72,12 +89,8 @@ public class LoggedInChatbox  {
             //todo:如果后期没有问题要不要改成while
             if (socketPrivate.isConnected()) {
 
-                clientPrivate.sendMessage(username);
-                clientPrivate.sendMessage(password);
-
-                BufferedReader bufferedReader= clientPrivate.getBufferedReader();
-                listenForMessage(socketPrivate, bufferedReader );
-
+                ObjectInputStream objectInputStream= clientPrivate.getObjectInputStream();
+                listenForMessage(socketPrivate, objectInputStream);
             }
 
         }catch (IOException e){
@@ -86,55 +99,109 @@ public class LoggedInChatbox  {
     }
 
 
-    public void listenForMessage(Socket socket, BufferedReader bufferedReader){
+    @FXML
+    public void listenForMessage(Socket socket, ObjectInputStream objectInput){
         //CREATE A NEW THREAD AND PASS the runnable object
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("<listen for messages>");
+        new Thread(() -> {
+            System.out.println("<listen for messages>");
 
-                while(socket.isConnected()){
-                    try{
-                        String receivedMessage= bufferedReader.readLine();
-                        addTextInScrollPane(receivedMessage);
-                        System.out.println(receivedMessage+" ("+username+ ": listenForMessage)");
+            while(socket.isConnected()){
+                try{
+                    //todo: bug: socket.closed();
+                    Message receivedMessage= (Message) objectInput.readObject();
+                    MessageType messageType= receivedMessage.getType();
 
-                    }catch (IOException e){
-                        e.printStackTrace();
+                    if (messageType==MessageType.PICTURE){
+                        String senderUsernameWithDate="("+receivedMessage.getSendTime()+")" +"\n"+receivedMessage.getName()+": ";
+                        //得到url
+                        String newImageMessage= receivedMessage.getPicture();
+                        addPictureToTextFlow(senderUsernameWithDate, newImageMessage);
+                        System.out.println("newImageMessage: "+newImageMessage);
+
+                        Platform.runLater(()->{
+                            //TODO：先让接受到的图片看能不能显示出来----可以显示出来了！！！
+//                            Stage fileDisplayer= new Stage();
+//                            Image image1= new Image(new ByteArrayInputStream(newImageMessage));
+//                            ImageView imageView= new ImageView(image1);
+//                            imageView.setImage(image1);
+//                            imageView.setFitHeight(460);
+//                            imageView.setFitWidth(510);
+//                            Group root= new Group(imageView);
+//                            Scene scene= new Scene(root, 600, 500 );
+//                            fileDisplayer.setTitle("Image Preview");
+//                            fileDisplayer.setResizable(false);
+//                            fileDisplayer.setScene(scene);
+//                            fileDisplayer.show();
+                        });
                     }
+
+                    if (messageType==MessageType.EMOJI){
+                        //TODO: 发emoji的时候加到聊天框里面
+
+                    }
+                    if (messageType==MessageType.TEXT){
+                        String newGroupMessage= receivedMessage.getMsg();
+                        String senderUsername= receivedMessage.getName();
+                        Date sendDate= receivedMessage.getSendTime();
+                        String toBeAppended= "("+sendDate+")"+"\n"+senderUsername+": "+newGroupMessage;
+                        addTextToTextFlow(toBeAppended);
+                    }
+
+                }catch (IOException | ClassNotFoundException e){
+                    e.printStackTrace();
                 }
             }
         }).start();
-
     }
-    public LoggedInChatbox () {setUserInfo();}
 
     @FXML
-    public void addTextInScrollPane(String msgWithUsername){
-        groupChatMessage.appendText(" "+msgWithUsername+"\n"+"\n");
+    public void addTextToTextFlow(String messageWithUsername){
+        //Paragraphs are separated by '\n' present in any Text child
+        // todo: not on javafx application thread, 不是Javafx的thread: 需要用 Platform.runLater ！！！
+
+        Platform.runLater(()->{
+                    Text textMessage= new Text("\n"+messageWithUsername+"\n");
+                    textMessage.setTextAlignment(TextAlignment.JUSTIFY);
+                    textMessage.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
+                    groupChatMessage.getChildren().add(textMessage);
+                }
+                );
     }
 
+    @FXML
+    public void addPictureToTextFlow(String sender, String picUrl){
+        //todo: 对于已经收到的图片消息:现在能收到消息但是无法在textFlow上显示
+        Platform.runLater (()->{
+            //可以了！！！！
+            Image image = new Image(picUrl);
+            ImageView imageView= new ImageView(image);
+            Text userInfo= new Text("\n"+sender+": \n");
+            userInfo.setTextAlignment(TextAlignment.JUSTIFY);
+            userInfo.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
+            groupChatMessage.getChildren().addAll(userInfo, imageView);
+        });
 
+    }
     @FXML
     public void setSendMessage(ActionEvent event ){
-        //Send Button 的正经函数
+        //todo: Send Button 的正经函数: 现在只能发送文字消息
 
-        if (socketPrivate.isConnected()){
-            System.out.println("按了一次send(来自LoggedInChatbox ().send)");
-        }
+        Message message1 = new Message();
+        message1.setSendTime(new Date());
+        message1.setType(MessageType.TEXT);
+        message1.setMsg(messageToSend.getText());
+        message1.setName(username);
 
-        if (socketPrivate.isConnected()&& !Objects.equals(message, "")){
-            clientPrivate.sendMessage(message);  //可以使
+        if (socketPrivate.isConnected()){System.out.println("按了一次send(来自LoggedInChatbox ().send)");}
+
+        if (socketPrivate.isConnected()&& !(messageToSend.getText()).equals("")){
+            clientPrivate.sendMessage(message1);  //可以使
             messageToSend.clear();
         }
     }
 
     @FXML
-    public void setClearMessage(ActionEvent event){clearFunction();}
-
-    public void clearFunction() {
-        messageToSend.clear();
-    }
+    public void setClearMessage(ActionEvent event){messageToSend.clear();}
 
     @FXML
     public void setEmojiList(ActionEvent event){
@@ -150,6 +217,7 @@ public class LoggedInChatbox  {
             primaryStage.setTitle("Emojis List");
             primaryStage.setScene(scene);
             primaryStage.show();
+
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -161,6 +229,7 @@ public class LoggedInChatbox  {
     public void setPictureSelection(ActionEvent event) {
 
         String picAbsPath;
+        String picRltPath;
         Stage fileDisplayer= new Stage();
 
         FileChooser fileChooser= new FileChooser();
@@ -175,47 +244,67 @@ public class LoggedInChatbox  {
         File file= fileChooser.showOpenDialog(fileDisplayer);
 
         if (file!=null){
-            label.setText(file.getAbsolutePath() + "is being selected");
             picAbsPath= file.getAbsolutePath();
+            picRltPath= file.getPath();
 
-            messageToSend.appendText("The absolute path of the pic: "+picAbsPath);
+            URI uri1= file.toURI();
+            try {
+                URL url1=uri1.toURL();
+                FileInputStream fileInputStream= new FileInputStream(picAbsPath);
+                Image image= new Image(fileInputStream);
 
-            try{
-                Image image= new Image(new FileInputStream(picAbsPath));
-                ImageView imageView= new ImageView(image);
-                imageView.setImage(image);
-                imageView.setX(50.0);
-                imageView.setY(40.0);
-                imageView.setFitHeight(460);
-                imageView.setFitWidth(510);
-                Group root= new Group(imageView);
-                Scene scene= new Scene(root, 600, 500 );
-                fileDisplayer.setTitle("Image Preview");
-                fileDisplayer.setScene(scene);
-                fileDisplayer.show();
+                //byte[] buffer= new byte[fileInputStream.available()];
 
-            }catch (IOException E){
-                E.printStackTrace();
+                Message picMessage= new Message();
+                picMessage.setPicture(url1.toString());
+                picMessage.setName(username);
+                picMessage.setType(MessageType.PICTURE);
+                picMessage.setSendTime(new Date());
+                clientPrivate.sendMessage(picMessage);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e){
+                e.printStackTrace();
             }
 
+            label.setText(picAbsPath + "is being selected");
+            System.out.println("The realative path of the pic: "+picRltPath);
 
-            //clientPrivate.sendMessage("\n"+picAbsPath);
+
+
+                //display image 的部分
+//                Image image= new Image(new FileInputStream(picAbsPath));
+//                ImageView imageView= new ImageView(image);
+//                imageView.setImage(image);
+//                imageView.setFitHeight(460);
+//                imageView.setFitWidth(510);
+//                Group root= new Group(imageView);
+//                Scene scene= new Scene(root, 600, 500 );
+//                fileDisplayer.setTitle("Image Preview");
+//                fileDisplayer.setResizable(false);
+//                fileDisplayer.setScene(scene);
+//                fileDisplayer.show();
+
+                //todo: 发送picMessage的时候
+                //fileDisplayer.close();
+
         }
 
-
     }
+
     @FXML
     public void setOnKeyPressed(KeyEvent keyEvent) {
         //按回车发消息的快捷键
         if (keyEvent.getCode()== KeyCode.ENTER){
-            clientPrivate.sendMessage(message);
+            Message message1= new Message();
+            message1.setType(MessageType.TEXT);
+            message1.setSendTime(new Date());
+            message1.setName(username);
+            message1.setMsg(messageToSend.getText());
+            clientPrivate.sendMessage(message1);
             messageToSend.clear();
         }
     }
 
-    @FXML
-    public void setMessage(KeyEvent keyEvent){
-        message=messageToSend.getText();
-    }
 
 }

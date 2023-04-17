@@ -1,11 +1,9 @@
 package ServerSide;
 
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Vector;
 
 
 /*The class that create a server and establish a server socket
@@ -31,21 +29,22 @@ public class Server {
                 System.out.println("\n"+"A new client has connected! " + socket);
 
                 //obtain the input and output stream on the server side
-                BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                BufferedWriter bufferedWriter= new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                ObjectInputStream objectInputStream= new ObjectInputStream(socket.getInputStream());
+                ObjectOutputStream objectOutputStream= new ObjectOutputStream(socket.getOutputStream());
 
                 //从这里首先读取username和password
-                String un= bufferedReader.readLine();
-                String pw= bufferedReader.readLine();
+                String un= String.valueOf(objectInputStream.read());
+                String pw= String.valueOf(objectInputStream.read());
                 System.out.println("username:"+un+"+ password: "+pw+ "(startServer)");
 
-                ClientHandler clientHandler= new ClientHandler(socket, bufferedReader,bufferedWriter, un );
+                ClientHandler clientHandler= new ClientHandler(socket, objectInputStream, objectOutputStream, un );
 
                 Thread thread = new Thread(clientHandler);
 
                 cHandlers.add(clientHandler);
 
                 thread.start();
+
             }
 
         }catch (IOException e){

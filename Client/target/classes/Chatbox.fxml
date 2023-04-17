@@ -8,9 +8,9 @@
 
 <AnchorPane prefHeight="652.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientSide.chatwindow.LoggedInChatbox">
    <children>
-      <TextArea fx:id="messageToSend" layoutX="14.0" layoutY="464.0" onKeyPressed="#setOnKeyPressed" onKeyTyped="#setMessage" prefHeight="200.0" prefWidth="718.0">
+      <TextArea fx:id="messageToSend" layoutX="14.0" layoutY="464.0" onKeyPressed="#setOnKeyPressed" prefHeight="200.0" prefWidth="718.0">
          <font>
-            <Font size="16.0" />
+            <Font name="Britannic Bold" size="16.0" />
          </font></TextArea>
       <Button fx:id="emojiList" layoutX="732.0" layoutY="514.0" mnemonicParsing="false" onAction="#setEmojiList" prefHeight="50.0" prefWidth="102.0" text="emoji">
          <font>
@@ -37,9 +37,10 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
       </ScrollPane>
-      <TextArea fx:id="groupChatMessage" layoutX="220.0" layoutY="26.0" prefHeight="426.0" prefWidth="599.0">
-         <font>
-            <Font name="Bell MT" size="17.0" />
-         </font></TextArea>
+      <ScrollPane layoutX="213.0" layoutY="14.0">
+         <content>
+            <TextFlow fx:id="groupChatMessage" prefHeight="436.0" prefWidth="616.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

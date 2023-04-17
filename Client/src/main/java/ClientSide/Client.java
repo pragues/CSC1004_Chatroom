@@ -1,15 +1,19 @@
 package ClientSide;
 
+import ClientSide.message.Message;
+
 import java.io.*;
 import java.net.Socket;
-import java.util.Date;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Client {
     private Socket socket;
-    private BufferedReader bufferedReader;
-    private BufferedWriter bufferedWriter;
+
+    private ObjectOutputStream oos;
+    private InputStream inputStream;
+    private ObjectInputStream ins;
+    private OutputStream outputStream;
+
     private String username;
     private String password;
 
@@ -23,8 +27,11 @@ public class Client {
     public Client(Socket socket, String username, String passcode){
         try{
             this.socket=socket;
-            this.bufferedWriter=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            //this.bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            outputStream=socket.getOutputStream();
+            oos= new ObjectOutputStream(outputStream);
+            inputStream=socket.getInputStream();
+            ins= new ObjectInputStream(inputStream);
             this.username=username;
             password=passcode;
 
@@ -33,33 +40,32 @@ public class Client {
         }
     }
 
-    public void sendMessage(String message){
+    public void sendMessage(Message message){
         try{
-            String mToSend= username+ ": "+message;
-
+            //将发消息的人变成一个message的属性
             //TODO： while 的问题
             if (socket.isConnected()&& !Objects.equals(message, "")){
-                bufferedWriter.write(mToSend);
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
+                System.out.println(message.getName()+": "+message.getType());
+                oos.writeObject((Message) message);
+                oos.flush();
             }
 
         }catch (IOException e){
-            closeEverything(socket,bufferedReader,bufferedWriter);
+            closeEverything(socket,ins,oos);
         }
     }
 
-    public BufferedReader getBufferedReader(){
-        return bufferedReader;
+    public ObjectInputStream getObjectInputStream(){
+        return ins;
     }
 
-    public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
+    public void closeEverything(Socket socket,ObjectInputStream oin, ObjectOutputStream oout){
         try{
-            if (bufferedReader!=null){
-                bufferedReader.close();
+            if (oin!=null){
+                oin.close();
             }
-            if (bufferedWriter!=null){
-                bufferedWriter.close();
+            if (oout!=null){
+                oout.close();
             }
             if (socket !=null){
                 socket.close();
