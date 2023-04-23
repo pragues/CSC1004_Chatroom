@@ -5,30 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/PagePicture/3057c4ec8d2d125-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/PagePicture/Ginger慢-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/PagePicture/QQ图片20230423234722-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/PagePicture/anotherGinger-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/PagePicture/images-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/PagePicture/下载-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/java_icon1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/chatwindow/LoggedInChatbox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/message/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/message/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Chatbox.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Page1.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/WebpageChat.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/light_bulb.png" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/PagePicture/light_bulb.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/meow_background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Chatbox.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/Page1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/java_icon1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/target/classes/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/light_bulb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/meow_background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +269,7 @@
       <workItem from="1681801825064" duration="698000" />
       <workItem from="1681815913047" duration="822000" />
       <workItem from="1682149753000" duration="198000" />
-      <workItem from="1682260621446" duration="6971000" />
+      <workItem from="1682260621446" duration="11998000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -521,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681747445369</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="commit">
+      <created>1682267809953</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1682267809954</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,9 +543,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java</url>
-          <line>30</line>
-          <properties field="startUp" class="ClientSide.login.Page1" />
-          <option name="timeStamp" value="1" />
+          <line>38</line>
+          <properties field="gingerMan1" class="ClientSide.login.Page1" />
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.sql.SQLIntegrityConstraintViolationException" package="java.sql" />

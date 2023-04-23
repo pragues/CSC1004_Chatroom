@@ -1,5 +1,6 @@
 package ClientSide.login;
 
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,6 +74,25 @@ public class Page1 extends Application {
         Image rightImage= new Image("PagePicture/3057c4ec8d2d125-removebg-preview.png");
         rightFlower.setImage(rightImage);
 
+        gingerMan2.setRotate(-30);
+
+        RotateTransition rotateTransition= new RotateTransition(Duration.millis(1000.0), gingerMan2);
+        rotateTransition.setFromAngle(0);
+        rotateTransition.setCycleCount(Animation.INDEFINITE);
+        rotateTransition.setByAngle(40);
+        rotateTransition.setInterpolator(Interpolator.LINEAR);
+        rotateTransition.setAutoReverse(true);
+        rotateTransition.play();
+
+        RotateTransition rotateTransition1= new RotateTransition(Duration.millis(1000.0), gingerMan1);
+        rotateTransition1.setDelay(Duration.millis(300));
+        rotateTransition1.setFromAngle(0);
+        rotateTransition1.setCycleCount(Animation.INDEFINITE);
+        rotateTransition1.setByAngle(-35);
+        rotateTransition1.setInterpolator(Interpolator.LINEAR);
+        rotateTransition1.setAutoReverse(true);
+        rotateTransition1.play();
+
     }
     @FXML
     @Override
@@ -93,11 +114,11 @@ public class Page1 extends Application {
         primaryStage.setWidth(635);
         primaryStage.setHeight(462);
         primaryStage.show();
-
     }
 
     @FXML
     public void setLogin(ActionEvent event) throws IOException {
+
         URL fxmlLocation = getClass().getResource("/Page2.fxml");
         Parent parent= FXMLLoader.load(fxmlLocation);
         Scene pageCreateUser=new Scene(parent);
@@ -119,6 +140,8 @@ public class Page1 extends Application {
         window.show();
     }
 
+
     public static void main(String[] args) {launch(args);}
+
 }
 

@@ -8,12 +8,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffe4e1;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientSide.login.Page1">
    <children>
-      <Label layoutX="110.0" layoutY="134.0" prefHeight="39.0" prefWidth="422.0" style="-fx-background-color: #f5f5f5;" text="Welcome to Central-Perk Chatroom!">
+      <Label layoutX="93.0" layoutY="138.0" prefHeight="39.0" prefWidth="422.0" style="-fx-background-color: #f5f5f5;" text="Welcome to Central-Perk Chatroom!">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="login" layoutX="210.0" layoutY="191.0" mnemonicParsing="false" onAction="#setLogin" prefHeight="67.0" prefWidth="223.0" style="-fx-background-color: #dcdcdc;" text="Login">
+      <Button fx:id="login" layoutX="210.0" layoutY="212.0" mnemonicParsing="false" onAction="#setLogin" prefHeight="67.0" prefWidth="223.0" style="-fx-background-color: #dcdcdc;" text="Login">
          <font>
             <Font name="Gill Sans Ultra Bold" size="28.0" />
          </font>
@@ -21,7 +21,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button fx:id="signUp" layoutX="210.0" layoutY="288.0" mnemonicParsing="false" onAction="#setSignUp" prefHeight="67.0" prefWidth="223.0" style="-fx-background-color: #dcdcdc;" text="Sign Up">
+      <Button fx:id="signUp" layoutX="210.0" layoutY="298.0" mnemonicParsing="false" onAction="#setSignUp" prefHeight="67.0" prefWidth="223.0" style="-fx-background-color: #dcdcdc;" text="Sign Up">
          <font>
             <Font name="Gill Sans Ultra Bold" size="28.0" />
          </font>
