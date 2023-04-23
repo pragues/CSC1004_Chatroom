@@ -8,12 +8,12 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.*;
 import javafx.scene.input.KeyCode;
@@ -23,7 +23,6 @@ import javafx.scene.text.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
 import java.io.*;
 import java.net.*;
 import java.util.Date;
@@ -42,6 +41,12 @@ public class LoggedInChatbox  {
     private TextArea messageToSend;
     @FXML
     private TextFlow groupChatMessage;
+    @FXML
+    private ScrollPane scrollPaneForTextFlow;
+    @FXML
+    private TextFlow onlineUsers;
+    @FXML
+    private ScrollPane leftHand;
 
     private String username;
     private String password;
@@ -52,22 +57,16 @@ public class LoggedInChatbox  {
     @FXML
     private void initialize(){
 
+        scrollPaneForTextFlow.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPaneForTextFlow.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+
+        leftHand.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        leftHand.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+
         groupChatMessage.setTextAlignment(TextAlignment.JUSTIFY);
         groupChatMessage.setPrefHeight(Region.USE_COMPUTED_SIZE);
         groupChatMessage.setPrefWidth(Region.USE_COMPUTED_SIZE);
 
-        //prevent the enter from adding a new line to inputMessageBox
-//        messageToSend.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent -> {
-//            if (keyEvent.getCode().equals(KeyCode.ENTER)){
-//                Message msgToSend= new Message();
-//                msgToSend.setSendTime(new Date());
-//                msgToSend.setType(MessageType.TEXT);
-//                msgToSend.setMsg(messageToSend.getText());
-//                msgToSend.setName(username);
-//                clientPrivate.sendMessage(msgToSend);
-//                keyEvent.consume();
-//            }
-//        });
     }
 
     public LoggedInChatbox () {setUserInfo();}
@@ -86,9 +85,14 @@ public class LoggedInChatbox  {
             socketPrivate= new Socket(ip, ServerPort);
             clientPrivate=new Client(socketPrivate,username,password);
 
+            Message initialUser = new Message();
+            initialUser.setType(MessageType.USER);
+            initialUser.setName(username);
+            clientPrivate.sendMessage(initialUser);
+
             //todo:如果后期没有问题要不要改成while
             if (socketPrivate.isConnected()) {
-
+                //收到来自群聊的消息
                 ObjectInputStream objectInputStream= clientPrivate.getObjectInputStream();
                 listenForMessage(socketPrivate, objectInputStream);
             }
@@ -118,21 +122,6 @@ public class LoggedInChatbox  {
                         addPictureToTextFlow(senderUsernameWithDate, newImageMessage);
                         System.out.println("newImageMessage: "+newImageMessage);
 
-                        Platform.runLater(()->{
-                            //TODO：先让接受到的图片看能不能显示出来----可以显示出来了！！！
-//                            Stage fileDisplayer= new Stage();
-//                            Image image1= new Image(new ByteArrayInputStream(newImageMessage));
-//                            ImageView imageView= new ImageView(image1);
-//                            imageView.setImage(image1);
-//                            imageView.setFitHeight(460);
-//                            imageView.setFitWidth(510);
-//                            Group root= new Group(imageView);
-//                            Scene scene= new Scene(root, 600, 500 );
-//                            fileDisplayer.setTitle("Image Preview");
-//                            fileDisplayer.setResizable(false);
-//                            fileDisplayer.setScene(scene);
-//                            fileDisplayer.show();
-                        });
                     }
 
                     if (messageType==MessageType.EMOJI){
@@ -147,6 +136,11 @@ public class LoggedInChatbox  {
                         addTextToTextFlow(toBeAppended);
                     }
 
+                    if (messageType==MessageType.USER){
+                        String userInfo= receivedMessage.getName();
+                        addNewUser(userInfo);
+                    }
+
                 }catch (IOException | ClassNotFoundException e){
                     e.printStackTrace();
                 }
@@ -154,6 +148,15 @@ public class LoggedInChatbox  {
         }).start();
     }
 
+    @FXML
+    public void addNewUser(String user){
+        Platform.runLater(()->{
+            Text newUser= new Text(user+"\n");
+            newUser.setTextAlignment(TextAlignment.JUSTIFY);
+            newUser.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
+            onlineUsers.getChildren().add(newUser);
+        });
+    }
     @FXML
     public void addTextToTextFlow(String messageWithUsername){
         //Paragraphs are separated by '\n' present in any Text child
@@ -164,8 +167,7 @@ public class LoggedInChatbox  {
                     textMessage.setTextAlignment(TextAlignment.JUSTIFY);
                     textMessage.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
                     groupChatMessage.getChildren().add(textMessage);
-                }
-                );
+        });
     }
 
     @FXML
@@ -253,8 +255,6 @@ public class LoggedInChatbox  {
                 FileInputStream fileInputStream= new FileInputStream(picAbsPath);
                 Image image= new Image(fileInputStream);
 
-                //byte[] buffer= new byte[fileInputStream.available()];
-
                 Message picMessage= new Message();
                 picMessage.setPicture(url1.toString());
                 picMessage.setName(username);
@@ -270,9 +270,7 @@ public class LoggedInChatbox  {
             label.setText(picAbsPath + "is being selected");
             System.out.println("The realative path of the pic: "+picRltPath);
 
-
-
-                //display image 的部分
+                //todo: display image 然后选择发送的部分
 //                Image image= new Image(new FileInputStream(picAbsPath));
 //                ImageView imageView= new ImageView(image);
 //                imageView.setImage(image);
@@ -285,7 +283,7 @@ public class LoggedInChatbox  {
 //                fileDisplayer.setScene(scene);
 //                fileDisplayer.show();
 
-                //todo: 发送picMessage的时候
+                //发送picMessage的时候
                 //fileDisplayer.close();
 
         }
@@ -294,7 +292,7 @@ public class LoggedInChatbox  {
 
     @FXML
     public void setOnKeyPressed(KeyEvent keyEvent) {
-        //按回车发消息的快捷键
+        //todo: 同时按space和shift 的发消息的快捷键
         if (keyEvent.getCode()== KeyCode.ENTER){
             Message message1= new Message();
             message1.setType(MessageType.TEXT);
@@ -304,6 +302,7 @@ public class LoggedInChatbox  {
             clientPrivate.sendMessage(message1);
             messageToSend.clear();
         }
+
     }
 
 

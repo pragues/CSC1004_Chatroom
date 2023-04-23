@@ -1,7 +1,6 @@
 package ClientSide.message;
 
 import ClientSide.chatwindow.Emoji;
-import javafx.scene.image.Image;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
@@ -32,32 +33,67 @@ public class Page1 extends Application {
     private Button login;
     @FXML
     private Button signUp;
+    @FXML
+    private ImageView gingerMan1;
+    @FXML
+    private ImageView gingerMan2;
+    @FXML
+    private ImageView sayHi;
+    @FXML
+    private ImageView leftFlower;
+    @FXML
+    private ImageView middleFlower;
+    @FXML
+    private ImageView rightFlower;
+
 
     /*The first stage loader
      * 非必要不要动，免得碰坏了*/
+
+    @FXML
+    private void initialize(){
+
+        //设置背景好看的的图片
+        Image ginger1= new Image("PagePicture/Ginger慢-removebg-preview.png");
+        gingerMan1.setImage(ginger1);
+
+        Image ginger2= new Image("PagePicture/anotherGinger-removebg-preview.png");
+        gingerMan2.setImage(ginger2);
+
+        Image bubble= new Image("PagePicture/下载-removebg-preview.png");
+        sayHi.setImage(bubble);
+
+        Image leftImage= new Image("PagePicture/images-removebg-preview.png");
+        leftFlower.setImage(leftImage);
+
+        Image midImage= new Image("PagePicture/QQ图片20230423234722-removebg-preview.png");
+        middleFlower.setImage(midImage);
+
+        Image rightImage= new Image("PagePicture/3057c4ec8d2d125-removebg-preview.png");
+        rightFlower.setImage(rightImage);
+
+    }
     @FXML
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage=stage;
-        //AnchorPane root = new AnchorPane();
 
         URL fxmlLocation = getClass().getResource("/Page1.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
 
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Page1.fxml"));
         fxmlLoader.setLocation(getClass().getResource("/Page1.fxml"));
-        //fxmlLoader.setRoot(new AnchorPane());
 
         Parent root = fxmlLoader.load();  // 邮件中说的要改的第68行
         Page1 loginViewController = fxmlLoader.getController();
-        primaryStage.setScene(new Scene(root));
 
+        primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("Central-perk Chatroom");
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image("light_bulb.png"));
-        primaryStage.setWidth(650);
-        primaryStage.setHeight(505);
+        primaryStage.getIcons().add(new Image("PagePicture/light_bulb.png"));
+        primaryStage.setWidth(635);
+        primaryStage.setHeight(462);
         primaryStage.show();
+
     }
 
     @FXML

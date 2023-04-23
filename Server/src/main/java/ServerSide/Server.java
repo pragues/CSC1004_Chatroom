@@ -6,10 +6,11 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 
-/*The class that create a server and establish a server socket
+/*-----------------------------------------------------------
+*The class that create a server and establish a server socket
 *Port number : 1233
-* The main class of the server module
-* */
+*The main class of the server module
+* ------------------------------------------------------------*/
 public class Server {
 
     private final ServerSocket serverSocket;  //可能要final
@@ -55,7 +56,6 @@ public class Server {
 
     public void closeServerSocket(){
         try {
-            //null pointer exception
             if (serverSocket!= null){
                 serverSocket.close();
             }
