@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="71fecc9a-58e0-4227-a64a-2bc5fb7acb54" name="Changes" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/java_icon1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/Page1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Page3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Page3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/Page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/Page3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Page3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ServerSide/ClientHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +272,8 @@
       <workItem from="1681801825064" duration="698000" />
       <workItem from="1681815913047" duration="822000" />
       <workItem from="1682149753000" duration="198000" />
-      <workItem from="1682260621446" duration="11998000" />
+      <workItem from="1682260621446" duration="13239000" />
+      <workItem from="1682405673148" duration="981000" />
     </task>
     <task id="LOCAL-00001" summary="The 2.26 trial. Known more about basic structure like dependencies and module management.">
       <created>1677341862038</created>
@@ -509,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682267809954</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="commit">
+      <created>1682272994230</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1682272994230</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +576,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>
-          <line>43</line>
+          <line>66</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -585,7 +596,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page3.java</url>
-          <line>42</line>
+          <line>65</line>
           <properties class="ClientSide.login.Page3">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -594,7 +605,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/main/java/ClientSide/login/Page2.java</url>
-          <line>42</line>
+          <line>65</line>
           <properties class="ClientSide.login.Page2">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

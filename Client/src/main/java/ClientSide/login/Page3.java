@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -24,6 +25,8 @@ public class Page3 {
     private TextField newPassword;
     @FXML
     private javafx.scene.control.Button up;
+    @FXML
+    private Button backward;
 
 
     private String userName;
@@ -33,6 +36,26 @@ public class Page3 {
         //TODO
         //转场到getScene1
     };
+
+    @FXML
+    public void setBackward(ActionEvent actionEvent){
+        URL fxmlLocation = getClass().getResource("/Page1.fxml");
+        Parent parent= null;
+        try {
+            parent = FXMLLoader.load(fxmlLocation);
+            Scene pageCreateUser=new Scene(parent);
+
+            Stage window= (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.setScene(pageCreateUser);
+            window.setHeight(462);
+            window.setWidth(635);
+            window.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public static void signUpUser(ActionEvent event, String username, String password){
         Connection connection=null;

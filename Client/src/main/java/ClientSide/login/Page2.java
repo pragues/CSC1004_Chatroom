@@ -26,8 +26,12 @@ public class Page2 {
     private TextField userName;
     @FXML
     private TextField passWord;
+    @FXML
+    private Button backward;
+
     private static String username;
     private static String password;
+
 
 
     @FXML
@@ -37,6 +41,25 @@ public class Page2 {
     
     public static String giveUsername(){return username;}
     public static String givePassword(){return password;}
+
+    @FXML
+    public void setBackward(ActionEvent actionEvent){
+        URL fxmlLocation = getClass().getResource("/Page1.fxml");
+        Parent parent= null;
+        try {
+            parent = FXMLLoader.load(fxmlLocation);
+            Scene page=new Scene(parent);
+
+            Stage window= (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.setScene(page);
+            window.setHeight(462);
+            window.setWidth(635);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @FXML
     public void setLogin(ActionEvent event)throws IOException{
@@ -91,4 +114,6 @@ public class Page2 {
         }
         System.out.println(checkUser);
     }
+
+
 }

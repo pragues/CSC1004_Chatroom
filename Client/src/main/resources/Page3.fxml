@@ -28,5 +28,10 @@
       </Button>
       <TextField fx:id="newUser" layoutX="271.0" layoutY="133.0" onAction="#setNewUser" prefHeight="44.0" prefWidth="227.0" />
       <TextField fx:id="newPassword" layoutX="271.0" layoutY="190.0" onAction="#setNewPassword" prefHeight="44.0" prefWidth="227.0" />
+      <Button fx:id="backward" layoutX="41.0" layoutY="342.0" mnemonicParsing="false" onAction="#setBackward" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: #e6e6fa;" text="Back">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
