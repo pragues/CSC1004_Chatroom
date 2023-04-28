@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="652.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientSide.chatwindow.LoggedInChatbox">
    <children>
-      <TextArea fx:id="messageToSend" layoutX="14.0" layoutY="464.0" onKeyPressed="#setOnKeyPressed" prefHeight="200.0" prefWidth="718.0">
+      <TextArea fx:id="messageToSend" layoutX="14.0" layoutY="412.0" onKeyPressed="#setOnKeyPressed" prefHeight="252.0" prefWidth="718.0">
          <font>
             <Font name="Britannic Bold" size="16.0" />
          </font></TextArea>
@@ -32,9 +32,9 @@
             <Font name="Consolas" size="18.0" />
          </font>
       </Button>
-      <ScrollPane fx:id="scrollPaneForTextFlow" layoutX="213.0" layoutY="14.0" prefHeight="450.0" prefWidth="625.0">
+      <ScrollPane fx:id="scrollPaneForTextFlow" layoutX="213.0" layoutY="14.0" prefHeight="392.0" prefWidth="626.0">
          <content>
-            <TextFlow fx:id="groupChatMessage" prefHeight="436.0" prefWidth="616.0" />
+            <TextFlow fx:id="groupChatMessage" prefHeight="379.0" prefWidth="616.0" />
          </content>
       </ScrollPane>
       <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="568.0" layoutY="627.0" lineSpacing="5.0" prefHeight="24.0" prefWidth="163.0" text=" Press SHIFT+ENTER ">
@@ -48,10 +48,15 @@
             <Font name="Bodoni MT" size="18.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="leftHand" layoutX="14.0" layoutY="72.0" prefHeight="384.0" prefWidth="200.0">
+      <ScrollPane fx:id="leftHand" layoutX="14.0" layoutY="72.0" prefHeight="335.0" prefWidth="200.0">
          <content>
-            <TextFlow fx:id="onlineUsers" prefHeight="371.0" prefWidth="200.0" />
+            <TextFlow fx:id="onlineUsers" prefHeight="329.0" prefWidth="200.0" />
          </content>
       </ScrollPane>
+      <Button fx:id="voiceMessage" layoutX="732.0" layoutY="413.0" mnemonicParsing="false" onMousePressed="#setVoiceMessage" prefHeight="50.0" prefWidth="102.0" text="Voice">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

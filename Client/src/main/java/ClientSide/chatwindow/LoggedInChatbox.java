@@ -6,6 +6,7 @@ import ClientSide.message.Message;
 import ClientSide.message.MessageType;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,14 +19,20 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.scene.text.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.sound.sampled.*;
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.Date;
+
+import static ClientSide.chatwindow.VoiceUtil.*;
+import static ClientSide.chatwindow.VoiceUtil.out;
 
 public class LoggedInChatbox  {
 
@@ -38,6 +45,8 @@ public class LoggedInChatbox  {
     @FXML
     private Button pictureSelection;
     @FXML
+    private Button voiceMessage;
+    @FXML
     private TextArea messageToSend;
     @FXML
     private TextFlow groupChatMessage;
@@ -47,6 +56,7 @@ public class LoggedInChatbox  {
     private TextFlow onlineUsers;
     @FXML
     private ScrollPane leftHand;
+
 
     private String username;
     private String password;
@@ -85,6 +95,7 @@ public class LoggedInChatbox  {
             socketPrivate= new Socket(ip, ServerPort);
             clientPrivate=new Client(socketPrivate,username,password);
 
+            //todo: this.user set username message的
             Message initialUser = new Message();
             initialUser.setType(MessageType.USER);
             initialUser.setName(username);
@@ -96,6 +107,7 @@ public class LoggedInChatbox  {
                 ObjectInputStream objectInputStream= clientPrivate.getObjectInputStream();
                 listenForMessage(socketPrivate, objectInputStream);
             }
+
 
         }catch (IOException e){
             e.printStackTrace();
@@ -109,6 +121,7 @@ public class LoggedInChatbox  {
         new Thread(() -> {
             System.out.println("<listen for messages>");
 
+            //得到了新的消息
             while(socket.isConnected()){
                 try{
                     //todo: bug: socket.closed();
@@ -124,10 +137,6 @@ public class LoggedInChatbox  {
 
                     }
 
-                    if (messageType==MessageType.EMOJI){
-                        //TODO: 发emoji的时候加到聊天框里面
-
-                    }
                     if (messageType==MessageType.TEXT){
                         String newGroupMessage= receivedMessage.getMsg();
                         String senderUsername= receivedMessage.getName();
@@ -137,8 +146,15 @@ public class LoggedInChatbox  {
                     }
 
                     if (messageType==MessageType.USER){
-                        String userInfo= receivedMessage.getName();
+                        ArrayList<String> userInfo=receivedMessage.getOnlineUsers();
                         addNewUser(userInfo);
+                        System.out.println(userInfo);
+                    }
+                    if (messageType==MessageType.VOICE){
+                        byte[] groupVoiceMessage= receivedMessage.getVoiceMessage();
+                        String senderUsername= receivedMessage.getName();
+                        Date sendDate= receivedMessage.getSendTime();
+                        addVoiceMessage(groupVoiceMessage, senderUsername, sendDate);
                     }
 
                 }catch (IOException | ClassNotFoundException e){
@@ -149,30 +165,71 @@ public class LoggedInChatbox  {
     }
 
     @FXML
-    public void addNewUser(String user){
+    public void setVoiceMessage(){
+        //长按voice键
+        if (VoiceUtil.isRecording()) {
+            VoiceUtil.setRecording(false);
+        } else {
+            captureAudio(username, clientPrivate);
+        }
+    }
+
+    @FXML
+    public void addVoiceMessage(byte [] byteVoiceMessage, String username, Date sendTime){
+
         Platform.runLater(()->{
-            Text newUser= new Text(user+"\n");
-            newUser.setTextAlignment(TextAlignment.JUSTIFY);
-            newUser.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
-            onlineUsers.getChildren().add(newUser);
+            Button sentVoice=new Button();
+            sentVoice.setPrefHeight(35);
+            sentVoice.setPrefWidth(35);
+            ImageView playPic= new ImageView("PagePicture/stop.png");
+            playPic.setFitHeight(35);
+            playPic.setFitWidth(35);
+            ImageView pausePic= new ImageView("PagePicture/stop.png");
+            pausePic.setFitHeight(35);
+            pausePic.setFitWidth(35);
+
+            sentVoice.setGraphic(pausePic);
+            groupChatMessage.getChildren().add(sentVoice);
+
+            EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent e) {
+                    //todo: bofang
+
+                }
+            };
+            sentVoice.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
+        });
+    }
+
+    @FXML
+    public void addNewUser(ArrayList<String> toBeAdded){
+        //todo: 这里好像没有成功remove all
+        Platform.runLater(()->{
+            onlineUsers.getChildren().clear();
+            for (String user : toBeAdded) {
+                Text newUser = new Text(user + "\n");
+                newUser.setTextAlignment(TextAlignment.JUSTIFY);
+                newUser.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
+                onlineUsers.getChildren().add(newUser);
+            }
         });
     }
     @FXML
     public void addTextToTextFlow(String messageWithUsername){
         //Paragraphs are separated by '\n' present in any Text child
         // todo: not on javafx application thread, 不是Javafx的thread: 需要用 Platform.runLater ！！！
-
         Platform.runLater(()->{
                     Text textMessage= new Text("\n"+messageWithUsername+"\n");
                     textMessage.setTextAlignment(TextAlignment.JUSTIFY);
                     textMessage.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
                     groupChatMessage.getChildren().add(textMessage);
+
         });
     }
 
     @FXML
     public void addPictureToTextFlow(String sender, String picUrl){
-        //todo: 对于已经收到的图片消息:现在能收到消息但是无法在textFlow上显示
         Platform.runLater (()->{
             //可以了！！！！
             Image image = new Image(picUrl);
@@ -181,6 +238,7 @@ public class LoggedInChatbox  {
             userInfo.setTextAlignment(TextAlignment.JUSTIFY);
             userInfo.setFont(Font.font("Britannic Bold", FontWeight.BOLD, FontPosture.REGULAR, 17));
             groupChatMessage.getChildren().addAll(userInfo, imageView);
+
         });
 
     }
@@ -305,5 +363,54 @@ public class LoggedInChatbox  {
 
     }
 
+    //范例里面的extends VoiceUtil
+    public static void captureAudio(String username1, Client client) {
+        try {
+            final AudioFormat format = getAudioFormat();
+            DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
+            final TargetDataLine line = (TargetDataLine) AudioSystem.getLine(info);
+            line.open(format);
+            line.start();
+            Runnable runner = new Runnable() {
+                int bufferSize = (int)format.getSampleRate() * format.getFrameSize();
+                byte buffer[] = new byte[bufferSize];
+
+                public void run() {
+                    out = new ByteArrayOutputStream();
+                    isRecording = true;
+                    try {
+                        while (isRecording) {
+                            int count = line.read(buffer, 0, buffer.length);
+                            if (count > 0) {
+                                out.write(buffer, 0, count);
+                            }
+                        }
+                    } finally {
+                        try {
+                            out.close();
+                            out.flush();
+                            line.close();
+                            line.flush();
+
+                            Message voice= new Message();
+                            voice.setType(MessageType.VOICE);
+                            voice.setName(username1);
+                            voice.setSendTime(new Date());
+                            voice.setVoiceMessage(out.toByteArray());
+                            client.sendMessage(voice);
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            };
+            Thread captureThread = new Thread(runner);
+            captureThread.start();
+        } catch (LineUnavailableException e) {
+            System.err.println("Line unavailable: " );
+            e.printStackTrace();
+        }
+    }
 
 }

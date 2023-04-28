@@ -17,6 +17,7 @@ public class Server {
 
     //这个是因为client-handler里面所以改成static的
     static ArrayList<ClientHandler> cHandlers = new ArrayList<>();
+    static ArrayList<String> allUsername = new ArrayList<>();
     public Server(ServerSocket serverSocket){
         this.serverSocket=serverSocket;
     }
@@ -33,12 +34,12 @@ public class Server {
                 ObjectInputStream objectInputStream= new ObjectInputStream(socket.getInputStream());
                 ObjectOutputStream objectOutputStream= new ObjectOutputStream(socket.getOutputStream());
 
-                //从这里首先读取username和password
+                //toto: 这两行是无效信息
                 String un= String.valueOf(objectInputStream.read());
                 String pw= String.valueOf(objectInputStream.read());
                 System.out.println("username:"+un+"+ password: "+pw+ "(startServer)");
 
-                ClientHandler clientHandler= new ClientHandler(socket, objectInputStream, objectOutputStream, un );
+                ClientHandler clientHandler= new ClientHandler(socket, objectInputStream, objectOutputStream);
 
                 Thread thread = new Thread(clientHandler);
 

@@ -43,7 +43,7 @@ public class Page2 {
     public static String givePassword(){return password;}
 
     @FXML
-    public void setBackward(ActionEvent actionEvent){
+    public void setBack(ActionEvent actionEvent){
         URL fxmlLocation = getClass().getResource("/Page1.fxml");
         Parent parent= null;
         try {

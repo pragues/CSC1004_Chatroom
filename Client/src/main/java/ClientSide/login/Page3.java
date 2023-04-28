@@ -144,6 +144,7 @@ public class Page3 {
         JDBC jdbc3= new JDBC();
         jdbc3.initConnection();
 
+        //如果用户名和密码都重复了就会会报错，但是有一个错了是正常的
         boolean haveOne= jdbc3.confirmForPassword(userName,passWord);
         if (haveOne){
             Alert alert=new Alert(Alert.AlertType.ERROR);

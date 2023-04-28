@@ -7,7 +7,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Date;
 
-//Runnable si a class such that all the instance methods are implemented through different threads
+//Runnable is a class such that all the instance methods are implemented through different threads
 public class ClientHandler implements Runnable{
     //every instance of this class. Keep track of our clients so that when broadcast a message everyone can see it
     //static: 让其属于这个class而不是属于一个object of this class
@@ -24,7 +24,7 @@ public class ClientHandler implements Runnable{
     * that will be broadcast by this arraylist. */
     private final ObjectOutputStream objectOutputStream;
 
-    private final String client_name;
+    private String client_name;
 
     /*constructor: Take parameters and uniquely identify any incoming requests.
 
@@ -32,17 +32,16 @@ public class ClientHandler implements Runnable{
     * the server extracts its port number, the DataInputStream object and DataOutputStream object
     * and creates a new thread object of this class and invokes start() method on it.
     * */
-    public ClientHandler(Socket socket, ObjectInputStream oi, ObjectOutputStream oo, String username){
+    public ClientHandler(Socket socket, ObjectInputStream oi, ObjectOutputStream oo){
 
-            objectInputStream=oi;
-            objectOutputStream=oo;
-            client_name= username;
-            this.socket=socket;
+        objectInputStream=oi;
+        objectOutputStream=oo;
+        this.socket=socket;
 
-            System.out.println("ClientHandler: "+ client_name + " has entered the chatroom! ");
-
+        System.out.println("ClientHandler: a new client has entered the chatroom! ");
     }
 
+    //public String thisUsername(){return client_name;}
     @Override
     public void run(){
 
@@ -51,8 +50,16 @@ public class ClientHandler implements Runnable{
             try {
                 //This is a blocking operation: 只读取一行数据域
                 Message newMessage=(Message) objectInputStream.readObject();
-                broadcastMessage(newMessage);
+                MessageType newType =newMessage.getType();
 
+                if (newType==MessageType.USER){
+                    String clientName=newMessage.getName();
+                    Server.allUsername.add(clientName);
+                    System.out.println(Server.allUsername);   //todo: 这里的ArrayList更新的额是正确的
+                    newMessage.setOnlineUsers(Server.allUsername);
+                }
+                //是因为你broadcast仍然是你播报的时间点的ArrayList吗
+                broadcastMessage(newMessage);
             }catch (IOException | ClassNotFoundException e){
                 closeEverything(socket,objectInputStream,objectOutputStream);
                 break;  //break out when client disconnects
@@ -61,7 +68,7 @@ public class ClientHandler implements Runnable{
     }
 
     public void broadcastMessage(Message messageToSent){
-
+        //给每个人发的要是一样的东西
         System.out.println("("+messageToSent.getSendTime()+")"+messageToSent.getName()+": "+messageToSent.getType());
         for (ClientHandler clientHandler: Server.cHandlers){
             try{
