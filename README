@@ -8,7 +8,8 @@ Modules:
 2.ServerSide
 
 Basic Function:
-
+Multi-client chat within only one chatroom. 
+GUI
 
 Functions:
 1. Sending Text messages
@@ -24,7 +25,8 @@ TODO:
 5. Create group
 
 How to Use:
-First run the Server on the ServerSide module, then run the 
+First run the Server on the Server module, then run the Page1 on Client module for one single user. 
 
 
 Remark:
+Long way to go! 
