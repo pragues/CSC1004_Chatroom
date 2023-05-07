@@ -7,7 +7,24 @@ Modules:
 1.ClientSide
 2.ServerSide
 
+Basic Function:
+
+
+Functions:
+1. Sending Text messages
+2. Sending Voice messages
+3. Sending Picuturs
+4. Login and basic user database
+
+TODO:
+1. emoji
+2. pull back message
+3. Message History
+4. Person to Person
+5. Create group
+
 How to Use:
+First run the Server on the ServerSide module, then run the 
 
 
 Remark:
