@@ -1,32 +1,49 @@
-Chatroom application: Central-Perk Chatroom
-Implementation: Maven, JavaFX (& Scene Builder), MySQL
-The most important part: Socket, Serializable, ObjectInputStream & ObjectOutputStream, Thread
-Author: QIU Runheng 122090437
+🚀 Central-Perk Chatroom 🌍
 
-Modules:
-1.ClientSide
-2.ServerSide
+Created by: QIU Runheng 🤝 122090437
 
-Basic Function:
-Multi-client chat within only one chatroom. 
-GUI
+💻 Implementation Details
 
-Functions:
-1. Sending Text messages
-2. Sending Voice messages
-3. Sending Picuturs
-4. Login and basic user database
+Built with:
 
-TODO:
-1. emoji
-2. pull back message
-3. Message History
-4. Person to Person
-5. Create group
+Maven 📦 for project management and dependency handling
+JavaFX 💻 (& Scene Builder) for intuitive and responsive GUI design
+MySQL 🗄️ for user database management
 
-How to Use:
-First run the Server on the Server module, then run the Page1 on Client module for one single user. 
+Things I Learnt:
+Socket Programming 🔌 for robust client-server communication
+Serializable Interface 📡 for object transmission over sockets
+ObjectInputStream & ObjectOutputStream 📨 for serializing/deserializing chat messages
+Thread Handling 🌀 for concurrent processing and smooth user experience
+👥 Modules
 
+ClientSide 👥
 
-Remark:
-Long way to go! 
+Handles user interactions and connects to the server for real-time messaging
+ServerSide 💻
+
+Manages multiple client connections, routes messages, and maintains chatroom integrity
+💬 Basic Functionality
+
+Multi-client chat within a single chatroom 🎙️👥
+User-friendly Graphical User Interface (GUI) 🎨
+🌟 Key Features
+
+Sending Text Messages 📝
+Sending Voice Messages 🎤
+Sending Pictures 📸
+User Login and Basic User Database Management 🔐
+📝 Todo List
+
+Emoji Support 😊😃😁😆
+Pull-back Message Functionality 🔄
+Message History 📜
+Person-to-Person Chatting 🤝
+Group Creation 👥👥👥
+🛠️ How to Use
+
+Run the Server on the Server module 🚀
+Launch Page1 on the Client module for each individual user 🌟
+💭 Remark
+
+Long way to go! 🌠 Keep evolving the Central-Perk Chatroom with exciting new features and enhancements. Stay tuned for future updates! 🔜
