@@ -10,7 +10,7 @@ Maven 📦 for project management and dependency handling
 JavaFX 💻 (& Scene Builder) for intuitive and responsive GUI design
 MySQL 🗄️ for user database management
 
-Things I Learnt:
+# Things I Learnt:
 Socket Programming 🔌 for robust client-server communication
 Serializable Interface 📡 for object transmission over sockets
 ObjectInputStream & ObjectOutputStream 📨 for serializing/deserializing chat messages
