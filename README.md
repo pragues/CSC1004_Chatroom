@@ -1,6 +1,4 @@
-Certainly! Here is the Markdown code for the README:
 
-```markdown
 # 🚀 Central-Perk Chatroom 🌍
 
 ### Created by: **QIU Runheng** 🤝 **122090437**
@@ -55,4 +53,3 @@ Things I Leanrt:
 #### 💭 Remark
 
 **Long way to go!** 🌠 Keep evolving the Central-Perk Chatroom with exciting new features and enhancements. Stay tuned for future updates! 🔜
-```
